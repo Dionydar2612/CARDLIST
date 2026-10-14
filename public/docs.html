@@ -1,0 +1,46 @@
+<!DOCTYPE html><html lang="th"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Card Battle API</title>
+<style>:root{--bg:#fbfbf7;--ink:#111;--card:#fff;--mut:#666}@media(prefers-color-scheme:dark){:root{--bg:#15171a;--ink:#f2f2f2;--card:#22252a;--mut:#aaa}}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.7 'Mali',Tahoma,sans-serif}main{max-width:860px;margin:0 auto;padding:24px 16px 60px}
+code,pre{font-family:ui-monospace,Menlo,Consolas,monospace;background:var(--card);border:1px solid var(--mut);border-radius:6px}code{padding:1px 6px}pre{padding:12px;overflow:auto}
+table{border-collapse:collapse;width:100%;display:block;overflow-x:auto}td,th{border:1px solid var(--mut);padding:6px 10px;text-align:left}a{color:inherit}</style></head><body><main>
+<h1>Card Battle API</h1>
+<p>ใช้ฟรี ไม่ต้องใช้ API key · ตอบเป็น JSON · เปิด CORS (เรียกจากเว็บอื่นได้) · จำกัด 120 requests/นาที/IP</p>
+<h2>Endpoints</h2>
+<table><tr><th>Method</th><th>Path</th><th>คำอธิบาย</th></tr>
+<tr><td>GET</td><td><code>/api/cards</code></td><td>รายการการ์ด (ค้นหา/กรอง/เรียง/แบ่งหน้า)</td></tr>
+<tr><td>GET</td><td><code>/api/cards/:id</code></td><td>การ์ดใบเดียว เช่น <code>SD01-001</code></td></tr>
+<tr><td>POST</td><td><code>/api/cards/batch</code></td><td>ส่ง <code>{"ids":[...]}</code> รับการ์ดหลายใบ (ใช้โหลดเด็คที่จัดไว้)</td></tr>
+<tr><td>GET</td><td><code>/api/decks</code></td><td>รายชื่อเด็ค/ซีรีส์</td></tr>
+<tr><td>GET</td><td><code>/api/decks/:id</code></td><td>เด็คพร้อมการ์ดทั้งหมด</td></tr>
+<tr><td>GET</td><td><code>/api/filters</code></td><td>ค่าตัวกรองที่มี (type, element, rarity, keyword …)</td></tr>
+<tr><td>GET</td><td><code>/api/elements</code></td><td>สี + ไอคอน SVG ของแต่ละธาตุ</td></tr>
+<tr><td>GET</td><td><code>/images/:id.jpg</code></td><td>รูปการ์ด</td></tr></table>
+<h2>พารามิเตอร์ของ /api/cards</h2>
+<table><tr><th>Query</th><th>ตัวอย่าง</th></tr>
+<tr><td>deck, type, element, rarity, rotation, tribe</td><td><code>?type=Unit,Spell&amp;element=ทอง</code> (คั่นหลายค่าด้วย ,)</td></tr>
+<tr><td>keyword</td><td><code>?keyword=AUTO</code></td></tr>
+<tr><td>q</td><td><code>?q=ธอร์</code> ค้นชื่อ/รหัส/เอฟเฟกต์</td></tr>
+<tr><td>costMin, costMax</td><td><code>?costMax=3</code></td></tr>
+<tr><td>sort, order</td><td><code>?sort=cost&amp;order=desc</code> (id, name, type, cost, atk, def)</td></tr>
+<tr><td>page, limit</td><td><code>?page=2&amp;limit=20</code> (limit สูงสุด 500)</td></tr></table>
+<h2>ตัวอย่างใช้งาน (JavaScript)</h2>
+<pre>const base = location.origin; // หรือ URL ของเว็บคุณ
+const { data } = await fetch(base + "/api/cards?type=Unit&amp;costMax=3").then(r =&gt; r.json());
+
+// โหลดเด็คที่ผู้ใช้เซฟไว้
+const deck = ["SD01-001","SD01-002","SD03-009SR"];
+const res = await fetch(base + "/api/cards/batch", {
+  method: "POST", headers: {"Content-Type":"application/json"},
+  body: JSON.stringify({ ids: deck })
+}).then(r =&gt; r.json());</pre>
+<h2>โครงสร้างการ์ด</h2>
+<pre>{
+  "id": "SD01-001", "deck": "SD01", "no": "001", "name": "ธอร์ เทพเจ้าสายฟ้า",
+  "type": "Avatar", "element": "ทอง", "rarity": "C", "rotation": "A", "artist": "...",
+  "cost": 5, "cri": 2, "atk": 7, "def": 6, "tribe": "เทพเจ้า",
+  "effects": [{ "keyword": "ACTIVATE 1/turn", "text": "..." }],
+  "flavor": "...", "image": "/images/SD01-001.jpg", "imageUrl": "https://.../images/SD01-001.jpg"
+}</pre>
+<p>ฟิลด์ที่การ์ดไม่มี (เช่น Spell ไม่มี atk/def) จะไม่ถูกส่งมา</p>
+</main></body></html>

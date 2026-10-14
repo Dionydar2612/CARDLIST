@@ -1,0 +1,29 @@
+[
+ {
+  "id": "SD01",
+  "name": "Storm Thunder",
+  "total": 19,
+  "rotation": "A",
+  "element": "ทอง",
+  "rarity": "C",
+  "artist": "Takeuchi Takashi"
+ },
+ {
+  "id": "SD02",
+  "name": "Record of the Future",
+  "total": 19,
+  "rotation": "A",
+  "element": "พืช",
+  "rarity": "C",
+  "artist": "ChatGPT"
+ },
+ {
+  "id": "SD03",
+  "name": "The Foundation of Camelot",
+  "total": 19,
+  "rotation": "A",
+  "element": "ดิน",
+  "rarity": "C",
+  "artist": "ChatGPT"
+ }
+]

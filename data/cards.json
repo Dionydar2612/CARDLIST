@@ -1,0 +1,1547 @@
+[
+ {
+  "id": "SD01-001",
+  "deck": "SD01",
+  "no": "001",
+  "name": "ธอร์ เทพเจ้าสายฟ้า",
+  "type": "Avatar",
+  "element": "ทอง",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "Takeuchi Takashi",
+  "tribe": "เทพเจ้า",
+  "effects": [
+   {
+    "keyword": "ACTIVATE 1/turn",
+    "text": "[Spend 2 Element] เลือก Unit ฝ่ายตรงข้าม 1 ใบที่มี DEF ต่ำกว่าหรือเท่ากับ 3 ทำลาย Unit นั้น"
+   }
+  ],
+  "flavor": "ข้ายังมีชีวิตอยู่ก็เพราะโชคชะตาอยากให้ข้ามีชีวิตอยู่",
+  "image": "/images/SD01-001.jpg"
+ },
+ {
+  "id": "SD01-002",
+  "deck": "SD01",
+  "no": "002",
+  "name": "ธีอัลฟี",
+  "type": "Unit",
+  "element": "ทอง",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "Takeuchi Takashi",
+  "cost": 1,
+  "cri": 0,
+  "atk": 2,
+  "def": 0,
+  "tribe": "มนุษย์/สหายแห่งธอร์",
+  "effects": [
+   {
+    "keyword": "AUTO",
+    "text": "เมื่อ Unit นี้โจมตี Unit ฝ่ายตรงข้าม หาก Unit นั้นมี ATK น้อยกว่าหรือเท่ากับ DEF ของ Unit นี้ คุณต้องทิ้งการ์ดบนมือ 1 ใบ เพื่อทำลาย Unit นั้น (หากไม่สามารถทำได้จะถือการโจมตีไม่สำเร็จ)"
+   }
+  ],
+  "flavor": "สิ่งที่ตายไปแล้วไม่อาจตายได้",
+  "image": "/images/SD01-002.jpg"
+ },
+ {
+  "id": "SD01-003",
+  "deck": "SD01",
+  "no": "003",
+  "name": "รอสควา",
+  "type": "Unit",
+  "element": "ทอง",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "Takeuchi Takashi",
+  "cost": 1,
+  "cri": 1,
+  "atk": 1,
+  "def": 1,
+  "tribe": "มนุษย์/สหายแห่งธอร์",
+  "effects": [
+   {
+    "keyword": "ADMONISH",
+    "text": "จั่วการ์ด 1 ใบจาก Main Deck"
+   }
+  ],
+  "flavor": "พี่ธีอัลฟี! หยุดวิ่งตามเงาของคนอื่นได้แล้ว การเป็นคนรับใช้ของเทพเจ้า ไม่ได้แปลว่าพี่ต้องกลายเป็นเทพ...",
+  "image": "/images/SD01-003.jpg"
+ },
+ {
+  "id": "SD01-004",
+  "deck": "SD01",
+  "no": "004",
+  "name": "ทันกริสนีร์",
+  "type": "Unit",
+  "element": "ทอง",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "Takeuchi Takashi",
+  "cost": 2,
+  "cri": 1,
+  "atk": 2,
+  "def": 3,
+  "tribe": "สัตว์",
+  "effects": [
+   {
+    "keyword": "ADVENT",
+    "text": "เลือก Unit ฝ่ายตรงข้าม 1 ใบ ที่มี DEF 2 หรือต่ำกว่า ทำลาย Unit นั้น"
+   },
+   {
+    "keyword": "AUTO",
+    "text": "หากคุณมี Unit ที่ชื่อ \"ทันโยสเตอร์\" อยู่บนสนาม เมื่อ Unit ฝ่ายตรงข้ามถูกทำลายด้วยความสามารถของการ์ดนี้ Unit นี้ได้รับ DEF +1 ถาวร"
+   }
+  ],
+  "flavor": "แบ๊... แบ๊...",
+  "image": "/images/SD01-004.jpg"
+ },
+ {
+  "id": "SD01-005",
+  "deck": "SD01",
+  "no": "005",
+  "name": "ทันโยสเตอร์",
+  "type": "Unit",
+  "element": "ทอง",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "Takeuchi Takashi",
+  "cost": 2,
+  "cri": 1,
+  "atk": 2,
+  "def": 2,
+  "tribe": "สัตว์",
+  "effects": [
+   {
+    "keyword": "ADVENT",
+    "text": "เปิดการ์ด 5 ใบบนสุดของ Main Deck ของคุณ เลือกการ์ดชื่อ \"ทันกริสนีร์\" หรือ \"มโยลเนียร์\" 1 ใบจากในนั้น แสดงการ์ดใบนั้นให้ฝ่ายตรงข้ามดู นำขึ้นมือ แล้วนำการ์ดที่เหลือเรียงไว้ใต้ Main Deck"
+   },
+   {
+    "keyword": "AUTO",
+    "text": "หากมี Unit ที่ชื่อ \"ทันกริสนีร์\" อยู่บนสนาม เมื่อ Unit ฝ่ายตรงข้ามถูกทำลาย การ์ดใบนี้ได้รับ ATK +1 ถาวร"
+   }
+  ],
+  "flavor": "แบ๊... แบ๊...",
+  "image": "/images/SD01-005.jpg"
+ },
+ {
+  "id": "SD01-006",
+  "deck": "SD01",
+  "no": "006",
+  "name": "แม็กนี",
+  "type": "Unit",
+  "element": "ทอง",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "Takeuchi Takashi",
+  "cost": 2,
+  "cri": 2,
+  "atk": 4,
+  "def": 2,
+  "tribe": "เทพ/บุตรแห่งธอร์",
+  "effects": [],
+  "flavor": "\"มันน่าเจ็บใจนักท่านพ่อ ที่ข้ามาช่วยช้าไป ข้าคิดว่าข้าคงจะทุบเจ้ายักษ์ตนนี้ให้ตายคามือได้แน่ ๆ ถ้าข้าได้เจอมันก่อน\"",
+  "image": "/images/SD01-006.jpg"
+ },
+ {
+  "id": "SD01-007",
+  "deck": "SD01",
+  "no": "007",
+  "name": "โมดี",
+  "type": "Unit",
+  "element": "ทอง",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "Takeuchi Takashi",
+  "cost": 2,
+  "cri": 2,
+  "atk": 3,
+  "def": 3,
+  "tribe": "เทพ/บุตรแห่งธอร์",
+  "effects": [
+   {
+    "keyword": "AUTO",
+    "text": "หากในเทิร์นนี้มี Unit ฝ่ายตรงข้ามถูกทำลาย การ์ดใบนี้ได้รับ CRI +1 ถาวร"
+   }
+  ],
+  "flavor": "ด้วยอำนาจแห่งธอร์!",
+  "image": "/images/SD01-007.jpg"
+ },
+ {
+  "id": "SD01-008",
+  "deck": "SD01",
+  "no": "008",
+  "name": "เลดี้ ซิฟ",
+  "type": "Unit",
+  "element": "ทอง",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "Takeuchi Takashi",
+  "cost": 3,
+  "cri": 2,
+  "atk": 4,
+  "def": 4,
+  "tribe": "เทพธิดา",
+  "effects": [
+   {
+    "keyword": "ADVENT",
+    "text": "เลือก Unit 1 ใบจาก Action Zone ของฝ่ายตรงข้าม ที่มี DEF 3 หรือต่ำกว่า ทำลาย Unit นั้น"
+   }
+  ],
+  "flavor": "ถ้าเจ้าทรยศเขา ข้าจะฆ่าเจ้า",
+  "image": "/images/SD01-008.jpg"
+ },
+ {
+  "id": "SD01-009",
+  "deck": "SD01",
+  "no": "009",
+  "name": "ไอน์เฮอร์ยาร์",
+  "type": "Unit",
+  "element": "ทอง",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "Takeuchi Takashi",
+  "cost": 3,
+  "cri": 2,
+  "atk": 3,
+  "def": 3,
+  "tribe": "วิญญาณ",
+  "effects": [
+   {
+    "keyword": "AUTO",
+    "text": "เมื่อ Unit นี้ถูกทำลายจากการต่อสู้ ให้นำการ์ดใบนี้กลับขึ้นมือแทนการนำไปยังกองทิ้ง"
+   }
+  ],
+  "flavor": "\"คนพวกไหนที่สู้กันในวิหารทุกวัน\"",
+  "image": "/images/SD01-009.jpg"
+ },
+ {
+  "id": "SD01-010",
+  "deck": "SD01",
+  "no": "010",
+  "name": "ผู้ถือครอง มโยลเนียร์",
+  "type": "Unit",
+  "element": "ทอง",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "Takeuchi Takashi",
+  "cost": 3,
+  "cri": 0,
+  "atk": 4,
+  "def": 5,
+  "tribe": "อาวุธ",
+  "effects": [
+   {
+    "keyword": "ADVENT",
+    "text": "ถ้า Avatar ของเรามีชื่อว่า \"ธอร์\" นำการ์ดที่ชื่อ \"มโยลเนียร์\" จากมือคุณ ที่เป็น Equipment มาสวมใส่ที่การ์ดใบนี้"
+   },
+   {
+    "keyword": "AUTO",
+    "text": "หากการ์ดใบนี้สวมใส่การ์ดที่ชื่อ \"มโยลเนียร์\" การ์ดใบนี้มีจะชื่อเพิ่มเติมว่า \"ธอร์\""
+   }
+  ],
+  "flavor": "จงกึกก้อง",
+  "image": "/images/SD01-010.jpg"
+ },
+ {
+  "id": "SD01-011",
+  "deck": "SD01",
+  "no": "011",
+  "name": "วาลคิรี แห่งแอสการ์ด",
+  "type": "Unit",
+  "element": "ทอง",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "Takeuchi Takashi",
+  "cost": 4,
+  "cri": 3,
+  "atk": 6,
+  "def": 5,
+  "tribe": "เทพธิดา/สหายแห่งธอร์",
+  "effects": [
+   {
+    "keyword": "ADVENT",
+    "text": "เลือก Unit 1 ใบจาก Action Zone ของฝ่ายตรงข้าม ที่มี DEF 4 หรือต่ำกว่า ทำลาย Unit นั้น"
+   }
+  ],
+  "flavor": "\"ไม่มีทางที่ฉันจะแพ้คนที่ไม่เคยคิดถึงความหวังและความฝันของคนอื่นเลย!\"",
+  "image": "/images/SD01-011.jpg"
+ },
+ {
+  "id": "SD01-012",
+  "deck": "SD01",
+  "no": "012",
+  "name": "แมกนี และ โมดี",
+  "type": "Unit",
+  "element": "ทอง",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "Takeuchi Takashi",
+  "cost": 5,
+  "cri": 3,
+  "atk": 6,
+  "def": 5,
+  "tribe": "เทพ/บุตรแห่งธอร์",
+  "effects": [
+   {
+    "keyword": "AUTO",
+    "text": "เมื่อ Unit นี้ทำลาย Unit ฝ่ายตรงข้ามสำเร็จ เปลี่ยนสภาพเป็น Stand และสามารถโจมตีได้อีกครั้ง"
+   }
+  ],
+  "flavor": "แกกำลังเผชิญหน้ากับลูกชายของธอร์!",
+  "image": "/images/SD01-012.jpg"
+ },
+ {
+  "id": "SD01-013",
+  "deck": "SD01",
+  "no": "013",
+  "name": "สายฟ้าพิฆาต",
+  "type": "Spell",
+  "sub": "Enchant",
+  "element": "ทอง",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "Takeuchi Takashi",
+  "cost": 1,
+  "sc": 1,
+  "tribe": "ปรากฏการณ์",
+  "effects": [
+   {
+    "keyword": "COST",
+    "text": "SpellCost: Spend 1 Element"
+   },
+   {
+    "keyword": "",
+    "text": "เลือก Unit 1 ใบจาก Action Zone ของฝ่ายตรงข้าม ที่มี DEF 1 หรือต่ำกว่า ทำลาย Unit นั้น"
+   }
+  ],
+  "flavor": "“เมื่อสายฟ้าฟาดลงมา ไม่มีสิ่งใดขวางทางค้อนแห่งธอร์ได้”",
+  "image": "/images/SD01-013.jpg"
+ },
+ {
+  "id": "SD01-014",
+  "deck": "SD01",
+  "no": "014",
+  "name": "เสียงเรียกแห่งสายฟ้า",
+  "type": "Spell",
+  "sub": "Enchant",
+  "element": "ทอง",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "Takeuchi Takashi",
+  "cost": 2,
+  "sc": 2,
+  "tribe": "ปรากฏการณ์",
+  "effects": [
+   {
+    "keyword": "COST",
+    "text": "SpellCost: Spend 2 Element"
+   },
+   {
+    "keyword": "",
+    "text": "เปิดการ์ด 3 ใบบนสุดของ Main Deck ของคุณ เลือก Unit 1 ใบที่มีเผ่า \"บุตรแห่งธอร์\" หรือ \"สหายแห่งธอร์\" และมี Cost 2 หรือต่ำกว่า จากการ์ดที่เปิด นำ Unit นั้นเข้าสู่ Action Zone แล้วนำการ์ดที่เหลือเรียงไว้ใต้ Main Deck"
+   }
+  ],
+  "flavor": "“เสียงคำรามจากสวรรค์คือสัญญาณ... เหล่าสหายแห่งธอร์จงลุกขึ้น!”",
+  "image": "/images/SD01-014.jpg"
+ },
+ {
+  "id": "SD01-015",
+  "deck": "SD01",
+  "no": "015",
+  "name": "จงมา!!",
+  "type": "Spell",
+  "sub": "Enchant",
+  "element": "ทอง",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "Takeuchi Takashi",
+  "cost": 1,
+  "sc": 1,
+  "tribe": "ปรากฏการณ์",
+  "effects": [
+   {
+    "keyword": "COST",
+    "text": "SpellCost: Spend 1 Element"
+   },
+   {
+    "keyword": "",
+    "text": "เลือกการ์ดเผ่า \"อาวุธ\" 1 ใบจาก Main Deck ของคุณ แสดงการ์ดใบนั้นให้ฝ่ายตรงข้ามดู แล้วนำขึ้นมือ จากนั้นสับ Main Deck"
+   }
+  ],
+  "flavor": "“มโยลเนียร์! จงตอบรับเสียงเรียกของผู้ถือครอง!”",
+  "image": "/images/SD01-015.jpg"
+ },
+ {
+  "id": "SD01-016",
+  "deck": "SD01",
+  "no": "016",
+  "name": "เมกิงจอร์ด",
+  "type": "Spell",
+  "sub": "Equipment",
+  "element": "ทอง",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "Takeuchi Takashi",
+  "cost": 4,
+  "sc": 4,
+  "tribe": "อาวุธ",
+  "effects": [
+   {
+    "keyword": "COST",
+    "text": "EquipCost: Spend 4 Element"
+   },
+   {
+    "keyword": "",
+    "text": "สวมใส่ได้เฉพาะการ์ดที่ชื่อ \"ธอร์\" การ์ดที่สวมใส่การ์ดใบนี้จะได้รับ DEF +2 สามารถสวมใส่การ์ดใบนี้ได้อีกใบ หากสวมใส่การ์ดที่ชื่อ \"มโยลเนียร์\" อยู่ก่อน"
+   },
+   {
+    "keyword": "ACTIVATE 1/turn",
+    "text": "เลือก Unit 1 ใบจาก Action Zone ของฝ่ายตรงข้าม ที่มี ATK น้อยกว่า ATK ของ Unit ที่สวมใส่การ์ดใบนี้ ทำลาย Unit นั้น"
+   }
+  ],
+  "flavor": "“เข็มขัดแห่งพลังที่ทำให้กำลังของเทพเจ้าเพิ่มพูนขึ้นจนไม่มีผู้ใดต้านทาน”",
+  "image": "/images/SD01-016.jpg"
+ },
+ {
+  "id": "SD01-017",
+  "deck": "SD01",
+  "no": "017",
+  "name": "มโยลเนียร์",
+  "type": "Spell",
+  "sub": "Equipment",
+  "element": "ทอง",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "Takeuchi Takashi",
+  "cost": 4,
+  "sc": 4,
+  "tribe": "อาวุธ",
+  "effects": [
+   {
+    "keyword": "COST",
+    "text": "EquipCost: Spend 4 Element"
+   },
+   {
+    "keyword": "",
+    "text": "สวมใส่ได้เฉพาะการ์ดที่ชื่อ \"ธอร์\" การ์ดที่สวมใส่การ์ดใบนี้จะได้รับ ATK +2"
+   },
+   {
+    "keyword": "AUTO",
+    "text": "เมื่อ Unit ที่สวมใส่การ์ดใบนี้ถูกทำลาย นำการ์ดใบนี้และการ์ดทั้งหมดที่สวมใส่ Unit นั้นกลับขึ้นมือ"
+   }
+  ],
+  "flavor": "“ค้อนแห่งสายฟ้า ผู้ใดถือครองมัน ผู้นั้นย่อมแบกรับพลังของเทพเจ้า”",
+  "image": "/images/SD01-017.jpg"
+ },
+ {
+  "id": "SD01-018",
+  "deck": "SD01",
+  "no": "018",
+  "name": "บิลสกีร์เนียร์",
+  "type": "Spell",
+  "sub": "Domain",
+  "element": "ทอง",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "Takeuchi Takashi",
+  "cost": 4,
+  "sc": 4,
+  "tribe": "ราชรถ",
+  "effects": [
+   {
+    "keyword": "COST",
+    "text": "CastCost: Spend 4 Element"
+   },
+   {
+    "keyword": "AUTO",
+    "text": "หากคุณมี Unit ที่ชื่อ \"ทันกริสนีร์\" และ \"ทันโยสเตอร์\" อยู่บนสนาม Unit ฝ่ายตรงข้ามทุกใบที่มี Cost ต่ำกว่า 4 ได้รับ DEF -1"
+   }
+  ],
+  "flavor": "“สายฟ้าคำรามเหนือบิลสกีร์เนียร์ และนักรบของธอร์ก็พร้อมออกศึก”",
+  "image": "/images/SD01-018.jpg"
+ },
+ {
+  "id": "SD01-019",
+  "deck": "SD01",
+  "no": "019",
+  "name": "มหาอัสนี เทพสายฟ้าจุติ",
+  "type": "Ultimate",
+  "element": "ทอง",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "Takeuchi Takashi",
+  "cost": 6,
+  "sc": 6,
+  "tribe": "ปรากฏการณ์",
+  "effects": [
+   {
+    "keyword": "COST",
+    "text": "CastCost: Spend 6 Element"
+   },
+   {
+    "keyword": "",
+    "text": "ทำลายการ์ดทุกใบใน Action Zone"
+   }
+  ],
+  "flavor": "“เมื่อเทพเจ้าลงมายังสนามรบ… แม้แต่สวรรค์และผืนพิภพก็ต้องสั่นสะเทือน”",
+  "image": "/images/SD01-019.jpg"
+ },
+ {
+  "id": "SD02-001",
+  "deck": "SD02",
+  "no": "001",
+  "name": "ธอธ ผู้รักษาภูมิปัญญา",
+  "type": "Avatar",
+  "element": "พืช",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "ChatGPT",
+  "tribe": "เทพเจ้า",
+  "effects": [
+   {
+    "keyword": "AUTO",
+    "text": "การ์ดใบบนสุดของ Main Deck ฝ่ายเราจะหงายหน้าเสมอ"
+   },
+   {
+    "keyword": "ACTIVATE 1/turn",
+    "text": "เปิดการ์ดใบบนสุดของ Main Deck ของคุณ 1 ใบ หากการ์ดที่เปิดเป็นเผ่า “อาลักษณ์” ให้จั่วการ์ด 2 ใบจาก Main Deck"
+   }
+  ],
+  "flavor": "“ทุกเหตุการณ์มีร่องรอยของมันอยู่ก่อนแล้ว ผู้มีปัญญาเท่านั้นที่อ่านมันออก”",
+  "image": "/images/SD02-001.jpg"
+ },
+ {
+  "id": "SD02-002",
+  "deck": "SD02",
+  "no": "002",
+  "name": "อาลักษณ์แห่งบันทึกศักดิ์สิทธิ์",
+  "type": "Unit",
+  "element": "พืช",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "ChatGPT",
+  "cost": 1,
+  "cri": 0,
+  "atk": 1,
+  "def": 3,
+  "tribe": "อาลักษณ์",
+  "effects": [
+   {
+    "keyword": "ADVENT",
+    "text": "เมื่อการ์ดนี้เข้าสู่สนาม ดูการ์ด 3 ใบบนสุดของ Main Deck ของคุณ เรียงตามชอบ"
+   },
+   {
+    "keyword": "PROPHECY",
+    "text": "(ประกาศชื่อการ์ด 1 ใบเปิดเผยการ์ดใบบนสุดของ Main Deck ฝ่ายคุณ หากประกาศถูกต้อง จะได้รับเอฟเฟกต์ของความสามารถนี้) ในแต่ละเทิร์น การ์ดนี้ได้รับ DEF +1 ได้เพียงครั้งเดียว จนจบเทิร์นของคู่แข่ง"
+   }
+  ],
+  "flavor": "“บันทึกเพียงหนึ่งบรรทัด อาจเปลี่ยนผลของสงครามทั้งครั้ง”",
+  "image": "/images/SD02-002.jpg"
+ },
+ {
+  "id": "SD02-003",
+  "deck": "SD02",
+  "no": "003",
+  "name": "ศิษย์แห่งนกไอบิส",
+  "type": "Unit",
+  "element": "พืช",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "ChatGPT",
+  "cost": 1,
+  "cri": 1,
+  "atk": 1,
+  "def": 1,
+  "tribe": "อาลักษณ์",
+  "effects": [
+   {
+    "keyword": "ADVENT",
+    "text": "เมื่อเข้าสู่สนาม ดูการ์ดบนสุดของ Main Deck คุณสามารถเลือกว่าจะนำไปไว้ใต้ Main Deck หรือไว้ที่เดิม"
+   }
+  ],
+  "flavor": "“ผู้พยากรณ์ที่ดีรู้ด้วยว่าเมื่อใดควรปฏิเสธสิ่งที่เห็น”",
+  "image": "/images/SD02-003.jpg"
+ },
+ {
+  "id": "SD02-004",
+  "deck": "SD02",
+  "no": "004",
+  "name": "นักดาราศาสตร์แห่งขมุน",
+  "type": "Unit",
+  "element": "พืช",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "ChatGPT",
+  "cost": 2,
+  "cri": 1,
+  "atk": 2,
+  "def": 4,
+  "tribe": "อาลักษณ์",
+  "effects": [
+   {
+    "keyword": "ADVENT",
+    "text": "เมื่อการ์ดนี้เข้าสู่สนาม ดูการ์ด 3 ใบบนสุดของ Main Deck ของคุณ เรียงตามชอบ"
+   },
+   {
+    "keyword": "PROPHECY",
+    "text": "(ประกาศชื่อการ์ด 1 ใบเปิดเผยการ์ดใบบนสุดของ Main Deck ฝ่ายคุณ หากประกาศถูกต้อง จะได้รับเอฟเฟกต์ของความสามารถนี้) ในแต่ละเทิร์น การ์ดนี้ได้รับ DEF +1 ได้เพียงครั้งเดียว จนจบเทิร์นของคู่แข่ง"
+   }
+  ],
+  "flavor": "“ดวงดาวไม่ได้บอกคำตอบ แต่บอกว่าควรมองไปทางไหน”",
+  "image": "/images/SD02-004.jpg"
+ },
+ {
+  "id": "SD02-005",
+  "deck": "SD02",
+  "no": "005",
+  "name": "ราชบรรณารักษ์หลวง",
+  "type": "Unit",
+  "element": "พืช",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "ChatGPT",
+  "cost": 2,
+  "cri": 1,
+  "atk": 3,
+  "def": 2,
+  "tribe": "อาลักษณ์",
+  "effects": [
+   {
+    "keyword": "ACTIVATE 1/turn",
+    "text": "เปลี่ยนสภาพการ์ดใบนี้เป็นนอน จากนั้นจั่วการ์ด จำนวน 1 ใบ, และทิ้งการ์ดในมือของเรา จำนวน 1 ใบ"
+   },
+   {
+    "keyword": "PROPHECY",
+    "text": "(ประกาศชื่อการ์ด 1 ใบเปิดเผยการ์ดใบบนสุดของ Main Deck ฝ่ายคุณ หากประกาศถูกต้อง จะได้รับเอฟเฟกต์ของความสามารถนี้) ในแต่ละเทิร์น จั่วการ์ด 1 ใบจาก Main Deck ได้เพียงครั้งเดียว"
+   }
+  ],
+  "flavor": "“ความรู้ที่ไม่จำเป็นในวันนี้ อาจเป็นคำตอบของวันพรุ่งนี้”",
+  "image": "/images/SD02-005.jpg"
+ },
+ {
+  "id": "SD02-006",
+  "deck": "SD02",
+  "no": "006",
+  "name": "ผู้พิทักษ์แห่งโถงศักดิ์สิทธิ์",
+  "type": "Unit",
+  "element": "พืช",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "ChatGPT",
+  "cost": 3,
+  "cri": 1,
+  "atk": 3,
+  "def": 3,
+  "tribe": "อาลักษณ์",
+  "effects": [
+   {
+    "keyword": "AUTO",
+    "text": "เมื่อ Unit ของคุณอีกใบตกเป็นเป้าหมายของการโจมตี คุณสามารถจ่าย 1 Element เพื่อเปลี่ยนเป้าหมายมาที่การ์ดใบนี้แทน"
+   },
+   {
+    "keyword": "PROPHECY",
+    "text": "(ประกาศชื่อการ์ด 1 ใบเปิดเผยการ์ดใบบนสุดของ Main Deck ฝ่ายคุณ หากประกาศถูกต้อง จะได้รับเอฟเฟกต์ของความสามารถนี้) การ์ดนี้ได้รับ DEF +2 จนจบเทิร์นของคู่แข่ง ได้เพียงครั้งเดียว"
+   }
+  ],
+  "flavor": "“ผู้พิทักษ์ที่แท้จริงไม่จำเป็นต้องชนะทุกการต่อสู้ แค่รักษาสิ่งสำคัญไว้ได้ก็พอ”",
+  "image": "/images/SD02-006.jpg"
+ },
+ {
+  "id": "SD02-007",
+  "deck": "SD02",
+  "no": "007",
+  "name": "ผู้ประกาศแห่งชะตากรรมที่ถูกจารึกไว้",
+  "type": "Unit",
+  "element": "พืช",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "ChatGPT",
+  "cost": 3,
+  "cri": 2,
+  "atk": 3,
+  "def": 3,
+  "tribe": "อาลักษณ์",
+  "effects": [
+   {
+    "keyword": "PROPHECY",
+    "text": "(ประกาศชื่อการ์ด 1 ใบเปิดเผยการ์ดใบบนสุดของ Main Deck ฝ่ายคุณ หากประกาศถูกต้อง จะได้รับเอฟเฟกต์ของความสามารถนี้) เลือก Unit ฝ่ายละ 1 ใบจาก Action Zone ของทั้งสองฝ่าย แล้วนำ Unit ที่เลือกไปวางไว้บนสุดของ Main Deck ของฝ่ายนั้น ๆ ได้เพียง 2 ครั้ง"
+   }
+  ],
+  "flavor": "“ข่าวสารที่มาถึงก่อน ย่อมเปลี่ยนชะตาของผู้รับฟัง”",
+  "image": "/images/SD02-007.jpg"
+ },
+ {
+  "id": "SD02-008",
+  "deck": "SD02",
+  "no": "008",
+  "name": "อาลักษณ์ชั้นสูงแห่งเทพธอธ",
+  "type": "Unit",
+  "element": "พืช",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "ChatGPT",
+  "cost": 4,
+  "cri": 2,
+  "atk": 4,
+  "def": 4,
+  "tribe": "อาลักษณ์",
+  "effects": [
+   {
+    "keyword": "ADVENT",
+    "text": "เมื่อการ์ดนี้เข้าสู่สนาม ฝ่ายตรงข้ามต้องเลือก 1 อย่าง ต่อไปนี้"
+   },
+   {
+    "keyword": "",
+    "text": "• จั่วการ์ด 2 ใบจาก Main Deck ฝ่ายเรา"
+   },
+   {
+    "keyword": "",
+    "text": "• ทิ้งการ์ด 2 ใบจากบนมือ ฝ่ายตรงข้าม"
+   }
+  ],
+  "flavor": "“แผนที่ดีไม่ได้ทำนายทุกสิ่ง แต่เตรียมทางเลือกไว้มากพอ”",
+  "image": "/images/SD02-008.jpg"
+ },
+ {
+  "id": "SD02-009",
+  "deck": "SD02",
+  "no": "009",
+  "name": "คำพยากรณ์แห่งบันทึกบทสุดท้าย",
+  "type": "Unit",
+  "element": "พืช",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "ChatGPT",
+  "cost": 5,
+  "cri": 2,
+  "atk": 5,
+  "def": 6,
+  "tribe": "อาลักษณ์",
+  "effects": [
+   {
+    "keyword": "PROPHECY",
+    "text": "(ประกาศชื่อการ์ด 1 ใบเปิดเผยการ์ดใบบนสุดของ Main Deck ฝ่ายคุณ หากประกาศถูกต้อง จะได้รับเอฟเฟกต์ของความสามารถนี้) เลือก Unit ฝ่ายตรงข้าม 1 ใบได้รับ ATK -2 จนจบเทิร์นของคู่แข่ง"
+   },
+   {
+    "keyword": "AUTO",
+    "text": "เมื่อ Unit ใบนี้โจมตี เปิดการ์ดใบบนสุดของ Main Deck หากเป็น Unit ให้ Unit ฝ่ายตรงข้ามได้รับ DEF -3"
+   }
+  ],
+  "flavor": "“ชะตาไม่ได้ถูกตัดสินด้วยคำทำนาย แต่ด้วยการตัดสินใจหลังจากได้ยินมัน”",
+  "image": "/images/SD02-009.jpg"
+ },
+ {
+  "id": "SD02-010",
+  "deck": "SD02",
+  "no": "010",
+  "name": "อ่านสิ่งที่ซ่อนอยู่ระหว่างบรรทัด",
+  "type": "Spell",
+  "sub": "Enchant",
+  "element": "พืช",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "ChatGPT",
+  "cost": 1,
+  "sc": 1,
+  "tribe": "อักขระเวทมนตร์",
+  "effects": [
+   {
+    "keyword": "COST",
+    "text": "SpellCost: Spend 1 Element"
+   },
+   {
+    "keyword": "",
+    "text": "ดูการ์ด 3 ใบบนสุดของ Main Deck ของคุณ เรียงตามชอบ"
+   },
+   {
+    "keyword": "PROPHECY",
+    "text": "(ประกาศชื่อการ์ด 1 ใบเปิดเผยการ์ดใบบนสุดของ Main Deck ฝ่ายคุณ หากประกาศถูกต้อง จะได้รับเอฟเฟกต์ของความสามารถนี้) จนจบเทิร์นฝ่ายตรงข้าม SPELL ทุกใบ ลดค่าใช้จ่ายลง 1 Element (ขั้นต่ำ 1)"
+   }
+  ],
+  "flavor": "“ความลับไม่ได้ซ่อนอยู่ในตัวอักษร แต่อยู่ระหว่างบรรทัด”",
+  "image": "/images/SD02-010.jpg"
+ },
+ {
+  "id": "SD02-011",
+  "deck": "SD02",
+  "no": "011",
+  "name": "การคำนวณตำแหน่งดาว",
+  "type": "Spell",
+  "sub": "Enchant",
+  "element": "พืช",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "ChatGPT",
+  "tribe": "อักษรแห่งสวรรค์",
+  "effects": [
+   {
+    "keyword": "",
+    "text": "เปิดการ์ด 3 ใบบนสุดของ Main Deck ของคุณ เลือก Counter 1 ใบจากการ์ดเหล่านั้นขึ้นมือ แล้วนำการ์ดที่เหลือไปไว้ใต้ Main Deck"
+   }
+  ],
+  "flavor": "“เมื่อดวงดาวเรียงตัว ความเป็นไปได้จะกลายเป็นเส้นทาง”",
+  "image": "/images/SD02-011.jpg"
+ },
+ {
+  "id": "SD02-012",
+  "deck": "SD02",
+  "no": "012",
+  "name": "ประกาศคำสั่งห้ามพูด",
+  "type": "Spell",
+  "sub": "Counter",
+  "element": "พืช",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "ChatGPT",
+  "cost": 2,
+  "sc": 2,
+  "tribe": "พระราชกฤษฎีกา",
+  "effects": [
+   {
+    "keyword": "COST",
+    "text": "SpellCost: Spend 2 Element"
+   },
+   {
+    "keyword": "",
+    "text": "เมื่อคู่แข่งใช้ Spell ให้ยกเลิกผลของ Spell นั้น"
+   },
+   {
+    "keyword": "PROPHECY",
+    "text": "(ประกาศชื่อการ์ด 1 ใบเปิดเผยการ์ดใบบนสุดของ Main Deck ฝ่ายคุณ หากประกาศถูกต้อง จะได้รับเอฟเฟกต์ของความสามารถนี้) จั่วการ์ด 1 ใบจาก Main Deck ของคุณ"
+   }
+  ],
+  "flavor": "“คำสั่งเพียงประโยคเดียว อาจหยุดแผนการที่สร้างมานับปี”",
+  "image": "/images/SD02-012.jpg"
+ },
+ {
+  "id": "SD02-013",
+  "deck": "SD02",
+  "no": "013",
+  "name": "น้ำหนักแห่งโชคชะตา",
+  "type": "Spell",
+  "sub": "Counter",
+  "element": "พืช",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "ChatGPT",
+  "cost": 2,
+  "sc": 2,
+  "tribe": "การพิพากษา",
+  "effects": [
+   {
+    "keyword": "COST",
+    "text": "SpellCost: Spend 2 Element"
+   },
+   {
+    "keyword": "",
+    "text": "เมื่อ Unit ของคุณตกเป็นเป้าหมายการโจมตี Unit ใบนั้นได้รับ DEF +3 จนจบการต่อสู้"
+   }
+  ],
+  "flavor": "“ความแข็งแกร่งไม่ใช่สิ่งที่ตัดสินผลลัพธ์เสมอไป น้ำหนักของการตัดสินใจก็เช่นกัน”",
+  "image": "/images/SD02-013.jpg"
+ },
+ {
+  "id": "SD02-014",
+  "deck": "SD02",
+  "no": "014",
+  "name": "ช่วงเวลาแห่งความลังเล",
+  "type": "Spell",
+  "sub": "Counter",
+  "element": "พืช",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "ChatGPT",
+  "cost": 2,
+  "sc": 2,
+  "tribe": "การพิพากษา",
+  "effects": [
+   {
+    "keyword": "COST",
+    "text": "SpellCost: Spend 2 Element"
+   },
+   {
+    "keyword": "",
+    "text": "เมื่อ Unit ของคุณตกเป็นเป้าหมายการโจมตี Unit ที่โจมตีได้รับ ATK -3 จนจบการต่อสู้"
+   }
+  ],
+  "flavor": "“เพียงเสี้ยววินาทีที่ลังเล อาจเป็นระยะห่างระหว่างชัยชนะกับความพ่ายแพ้”",
+  "image": "/images/SD02-014.jpg"
+ },
+ {
+  "id": "SD02-015",
+  "deck": "SD02",
+  "no": "015",
+  "name": "ตราประทับแห่งความรู้ต้องห้าม",
+  "type": "Spell",
+  "sub": "Counter",
+  "element": "พืช",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "ChatGPT",
+  "cost": 2,
+  "sc": 2,
+  "tribe": "การพิพากษา",
+  "effects": [
+   {
+    "keyword": "COST",
+    "text": "SpellCost: Spend 2 Element"
+   },
+   {
+    "keyword": "",
+    "text": "เมื่อคู่แข่งใช้ความสามารถของ Unit ให้ยกเลิกผลของความสามารถนั้น"
+   }
+  ],
+  "flavor": "“ความรู้บางอย่างไม่ควรถูกลบ แต่ควรถูกผนึกไว้”",
+  "image": "/images/SD02-015.jpg"
+ },
+ {
+  "id": "SD02-016",
+  "deck": "SD02",
+  "no": "016",
+  "name": "ข้าได้มองเห็นสิ่งนี้ไว้แล้ว",
+  "type": "Spell",
+  "sub": "Enchant",
+  "element": "พืช",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "ChatGPT",
+  "cost": 2,
+  "sc": 2,
+  "tribe": "การพิพากษา",
+  "effects": [
+   {
+    "keyword": "COST",
+    "text": "SpellCost: Spend 2 Element"
+   },
+   {
+    "keyword": "",
+    "text": "ดูการ์ดบนมือฝ่ายตรงข้าม เลือกการ์ด Spell ได้สูงสุด 2 ใบจากในนั้น ทิ้งที่ตำแหน่งทิ้งการ์ด"
+   }
+  ],
+  "flavor": "“ข้าไม่ได้หยุดสิ่งที่กำลังเกิดขึ้น ข้าเพียงเตรียมพร้อมก่อนที่มันจะเกิด”",
+  "image": "/images/SD02-016.jpg"
+ },
+ {
+  "id": "SD02-017",
+  "deck": "SD02",
+  "no": "017",
+  "name": "ปากกาจารึกนิรันดร์",
+  "type": "Spell",
+  "sub": "Equipment",
+  "element": "พืช",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "ChatGPT",
+  "cost": 3,
+  "sc": 3,
+  "tribe": "วัตถุโบราณ",
+  "effects": [
+   {
+    "keyword": "COST",
+    "text": "EquipCost: Spend 3 Element"
+   },
+   {
+    "keyword": "",
+    "text": "Unit ที่สวมใส่ได้รับ DEF +1"
+   },
+   {
+    "keyword": "ACTIVATE 1/turn",
+    "text": "ดูการ์ดบนสุดของ Main Deck หากเป็น Counter คุณสามารถเปิดเผยและคงไว้บนสุด หรือย้ายไปใต้ Main Deck เพื่อให้ผู้สวมใส่ได้รับ DEF +1 จนจบเทิร์นของคู่แข่ง"
+   }
+  ],
+  "flavor": "“บันทึกที่เขียนด้วยปลายปากกานี้ จะไม่มีวันถูกลืม”",
+  "image": "/images/SD02-017.jpg"
+ },
+ {
+  "id": "SD02-018",
+  "deck": "SD02",
+  "no": "018",
+  "name": "หอจดหมายเหตุสวรรค์",
+  "type": "Spell",
+  "sub": "Domain",
+  "element": "พืช",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "ChatGPT",
+  "cost": 3,
+  "sc": 3,
+  "tribe": "หอคอย",
+  "effects": [
+   {
+    "keyword": "COST",
+    "text": "CastCost: Spend 3 Element"
+   },
+   {
+    "keyword": "",
+    "text": "ครั้งแรกในแต่ละเทิร์นที่คุณใช้เอฟเฟกต์จัดเรียงการ์ดบนสุดของ Main Deck สำเร็จ คุณสามารถดูการ์ดบนสุดอีกครั้ง หากเป็น Counter ให้เปิดเผยการ์ดนั้นเพื่อให้ Counter ใบแรกที่คุณใช้ในเทิร์นถัดไปมีค่าใช้จ่ายลดลง 1 Element (ขั้นต่ำ 1)"
+   }
+  ],
+  "flavor": "“ในหอสมุดนี้ ไม่มีความรู้ใดสูญหาย มีเพียงผู้ที่ยังค้นหาไม่พบ”",
+  "image": "/images/SD02-018.jpg"
+ },
+ {
+  "id": "SD02-019",
+  "deck": "SD02",
+  "no": "019",
+  "name": "การพิพากษาครั้งสุดท้ายของเทพธอธ",
+  "type": "Ultimate",
+  "element": "พืช",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "ChatGPT",
+  "cost": 3,
+  "sc": 3,
+  "tribe": "ปรากฏการณ์",
+  "effects": [
+   {
+    "keyword": "COST",
+    "text": "CastCost: Spend 3 Element"
+   },
+   {
+    "keyword": "Counter",
+    "text": "เลือก Unit ฝ่ายตรงข้าม 1 ใบ หากคุณใช้ Counter สำเร็จในเทิร์นนี้อย่างน้อย 2 ครั้ง ส่ง Unit นั้นไปยังกองทิ้ง หากใช้ Counter สำเร็จในเทิร์นนี้อย่างน้อย 3 ครั้ง จั่วการ์ด 1 ใบ และเมื่อฝ่ายตรงข้ามใช้การ์ด Ultimate สามารถยกเลิกผลของการ์ด Ultimate นั้น"
+   }
+  ],
+  "flavor": "“เมื่อบันทึกเล่มสุดท้ายถูกปิดลง แม้แต่เทพเจ้าก็ไม่อาจโต้แย้งคำตัดสินได้”",
+  "image": "/images/SD02-019.jpg"
+ },
+ {
+  "id": "SD03-001",
+  "deck": "SD03",
+  "no": "001",
+  "name": "ยูเทอร์ เพนแดรกอน",
+  "type": "Avatar",
+  "element": "ดิน",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "ChatGPT",
+  "tribe": "มนุษย์",
+  "effects": [
+   {
+    "keyword": "ACTIVATE 1/turn",
+    "text": "เปิดการ์ด 5 ใบบนสุดของ Main Deck ของคุณ เลือกการ์ดที่มีชื่อ \"เส้นทาง\" 1 ใบจากในนั้น แสดงการ์ดใบนั้นให้ฝ่ายตรงข้ามดู นำขึ้นมือ แล้วนำการ์ดที่เหลือเรียงไว้ใต้ Main Deck"
+   },
+   {
+    "keyword": "ACTIVATE 1/turn",
+    "text": "ทิ้งการ์ดจากบนมือของคุณ 1 ใบ จากนั้นจั่วการ์ด 1 ใบจาก Main Deck"
+   }
+  ],
+  "flavor": "“อาณาจักรไม่ได้ถือกำเนิดในวันที่มงกุฎถูกสวม แต่ถือกำเนิดในวันที่ใครสักคนกล้าฝันถึงมัน”",
+  "image": "/images/SD03-001.jpg"
+ },
+ {
+  "id": "SD03-002",
+  "deck": "SD03",
+  "no": "002",
+  "name": "ดาบในหิน",
+  "type": "Unit",
+  "element": "ดิน",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "ChatGPT",
+  "cost": 1,
+  "cri": 0,
+  "atk": 0,
+  "def": 0,
+  "tribe": "หิน / วัตถุ",
+  "effects": [
+   {
+    "keyword": "AUTO",
+    "text": "เมื่อการ์ดใบนี้เข้าสู่ Action Zone ด้วยความสามารถของการ์ดคุณ เลือกการ์ดที่มีชื่อ “คาเมลอต” จาก Main Deck หรือกองทิ้ง 1 ใบ แสดงให้ฝ่ายตรงข้ามดูและนำขึ้นมือ จากนั้นสับ"
+   },
+   {
+    "keyword": "ADMONISH",
+    "text": "จั่วการ์ด 1 ใบจาก Main Deck"
+   }
+  ],
+  "flavor": "“ดาบไม่ได้เลือกผู้แข็งแกร่งที่สุด แต่มันรอคอยผู้ที่คู่ควรจะแบกรับมัน”",
+  "image": "/images/SD03-002.jpg"
+ },
+ {
+  "id": "SD03-003",
+  "deck": "SD03",
+  "no": "003",
+  "name": "เซอร์ ทริสตัน",
+  "type": "Unit",
+  "element": "ดิน",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "ChatGPT",
+  "cost": 1,
+  "cri": 1,
+  "atk": 1,
+  "def": 2,
+  "tribe": "อัศวินโต๊ะกลม / มนุษย์",
+  "effects": [
+   {
+    "keyword": "ADVENT",
+    "text": "เลือก Unit ฝ่ายตรงข้าม 1 ใบ Unit ใบที่เลือกจะสูญเสียความสามารถทั้งหมด จนจบเทิร์นฝ่ายตรงข้าม"
+   }
+  ],
+  "flavor": "“แม้ภาพที่เห็นจะชัดเจนเพียงใด ความจริงก็ยังอาจซ่อนตัวอยู่หลังม่านหมอก”",
+  "image": "/images/SD03-003.jpg"
+ },
+ {
+  "id": "SD03-004",
+  "deck": "SD03",
+  "no": "004",
+  "name": "เซอร์ แลนเซล็อต",
+  "type": "Unit",
+  "element": "ดิน",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "ChatGPT",
+  "cost": 2,
+  "cri": 1,
+  "atk": 2,
+  "def": 4,
+  "tribe": "อัศวินโต๊ะกลม / มนุษย์",
+  "effects": [
+   {
+    "keyword": "ANNOUNCE",
+    "text": "[ กองทิ้ง ] ถ้ามีการ์ดที่มีคำว่า “กวินีเวียร์” ในชื่ออยู่ใน Action Zone สามารถทิ้งการ์ดบนมือของคุณ 1 ใบ นำการ์ดใบนี้เข้าสู่ Action Zone โดยไม่ต้องจ่าย Cost"
+   }
+  ],
+  "flavor": "“ข้าสาบานว่าจะปกป้องราชินี แม้วันหนึ่งคำสาบานนั้นจะกลายเป็นบาดแผลของอาณาจักร”",
+  "image": "/images/SD03-004.jpg"
+ },
+ {
+  "id": "SD03-005",
+  "deck": "SD03",
+  "no": "005",
+  "name": "เซอร์ เบดิเวียร์",
+  "type": "Unit",
+  "element": "ดิน",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "ChatGPT",
+  "cost": 2,
+  "cri": 1,
+  "atk": 2,
+  "def": 2,
+  "tribe": "อัศวินโต๊ะกลม / มนุษย์",
+  "effects": [
+   {
+    "keyword": "ACTIVATE",
+    "text": "ส่งการ์ดใบนี้ลงกองทิ้ง เลือก Unit ที่มีชื่อ “อาเทอร์” 1 ใบจากกองทิ้งฝ่ายเรา อัญเชิญมาที่ Action Zone ในสภาพนอน"
+   }
+  ],
+  "flavor": "“บางครั้ง หน้าที่สุดท้ายของอัศวิน ไม่ใช่การต่อสู้เพื่อราชา แต่คือการจดจำสิ่งที่ราชาเคยเป็น”",
+  "image": "/images/SD03-005.jpg"
+ },
+ {
+  "id": "SD03-006",
+  "deck": "SD03",
+  "no": "006",
+  "name": "เซอร์ เพอซิลวาล",
+  "type": "Unit",
+  "element": "ดิน",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "ChatGPT",
+  "cost": 3,
+  "cri": 1,
+  "atk": 3,
+  "def": 3,
+  "tribe": "อัศวินโต๊ะกลม / มนุษย์",
+  "effects": [
+   {
+    "keyword": "AUTO",
+    "text": "ถ้า Unit นี้โจมตีสำเร็จ ได้รับพลังชีวิตเพิ่ม 1 หน่วย"
+   }
+  ],
+  "flavor": "“ชัยชนะอาจทำให้ผู้คนจดจำชื่อเจ้า แต่ความเมตตาจะทำให้พวกเขาจดจำหัวใจของเจ้า”",
+  "image": "/images/SD03-006.jpg"
+ },
+ {
+  "id": "SD03-007",
+  "deck": "SD03",
+  "no": "007",
+  "name": "กวินีเวียร์ ราชินีแห่งคาเมลอต",
+  "type": "Unit",
+  "element": "ดิน",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "ChatGPT",
+  "cost": 3,
+  "cri": 1,
+  "atk": 3,
+  "def": 3,
+  "tribe": "ราชวงศ์ / มนุษย์",
+  "effects": [
+   {
+    "keyword": "ADVENT",
+    "text": "เลือกการ์ดเผ่า “อัศวินโต๊ะกลม” 1 ใบจาก Main Deck ของคุณ ลงกองทิ้งคุณ แล้วสับ หลังจากนั้นจั่วการ์ด 2 ใบจาก Main Deck"
+   },
+   {
+    "keyword": "AUTO",
+    "text": "ตราบใดที่การ์ดใบนี้ยังอยู่ Unit เผ่า “อัศวินโต๊ะกลม” จะไม่ตรงเป็นเป้าของการ์ด Enchant"
+   }
+  ],
+  "flavor": "“กองทัพอาจเปลี่ยนพรมแดนด้วยคมดาบ แต่ถ้อยคำเพียงคำเดียวอาจเปลี่ยนหัวใจของทั้งราชสำนัก”",
+  "image": "/images/SD03-007.jpg"
+ },
+ {
+  "id": "SD03-008",
+  "deck": "SD03",
+  "no": "008",
+  "name": "เซอร์ มอเดร็ท",
+  "type": "Unit",
+  "element": "ดิน",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "ChatGPT",
+  "cost": 4,
+  "cri": 3,
+  "atk": 4,
+  "def": 4,
+  "tribe": "อัศวินโต๊ะกลม / มนุษย์",
+  "effects": [
+   {
+    "keyword": "ADVENT",
+    "text": "เปิดการ์ด 3 ใบบนสุดจาก Main Deck ของคุณ เลือกการ์ดที่ชื่อ “ยุทธาการที่คัมลานน์” 1 ใบจากที่เปิดเจอ แสดงให้ฝ่ายตรงข้ามดู และนำขึ้นมือ ที่เหลือนำไปไว้ใต้ Main Deck"
+   }
+  ],
+  "flavor": "“สงครามไม่ได้เริ่มต้นเมื่อดาบเล่มแรกถูกชักออกจากฝัก แต่มันเริ่มตั้งแต่วันที่ใครบางคนตัดสินใจทรยศ”",
+  "image": "/images/SD03-008.jpg"
+ },
+ {
+  "id": "SD03-009",
+  "deck": "SD03",
+  "no": "009",
+  "name": "อาเทอร์ เพนแดรกอน",
+  "type": "Unit",
+  "element": "ดิน",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "ChatGPT",
+  "cost": 5,
+  "cri": 2,
+  "atk": 7,
+  "def": 6,
+  "tribe": "อัศวินโต๊ะกลม / ราชา",
+  "effects": [
+   {
+    "keyword": "",
+    "text": "ไม่สามารถอัญเชิญการ์ดใบนี้จากมือได้"
+   },
+   {
+    "keyword": "ANNOUNCE",
+    "text": "[ บนมือ ] นำการ์ดใบนี้ลงกองทิ้ง, จั่วการ์ด 1 ใบจาก Main Deck"
+   },
+   {
+    "keyword": "ACTIVATE 1/turn",
+    "text": "ทิ้งการ์ดบนมือคุณ 1 ใบ การ์ดใบนี้จะได้รับความสามารถ DoubleStrike"
+   }
+  ],
+  "flavor": "“หากบัลลังก์ต้องการให้ข้าเป็นตำนาน ข้าก็จะเป็นตำนานในแบบที่ข้าเลือกเอง”",
+  "image": "/images/SD03-009.jpg"
+ },
+ {
+  "id": "SD03-009SR",
+  "deck": "SD03",
+  "no": "009",
+  "name": "อาเทอร์ เพนแดรกอน",
+  "type": "Unit",
+  "element": "ดิน",
+  "rarity": "SR",
+  "rotation": "A",
+  "artist": "ChatGPT",
+  "cost": 5,
+  "cri": 2,
+  "atk": 7,
+  "def": 6,
+  "tribe": "อัศวินโต๊ะกลม / ราชา",
+  "effects": [
+   {
+    "keyword": "",
+    "text": "ไม่สามารถอัญเชิญการ์ดใบนี้จากมือได้"
+   },
+   {
+    "keyword": "ANNOUNCE",
+    "text": "[ บนมือ ] นำการ์ดใบนี้ลงกองทิ้ง, จั่วการ์ด 1 ใบจาก Main Deck"
+   },
+   {
+    "keyword": "ACTIVATE 1/turn",
+    "text": "ทิ้งการ์ดบนมือคุณ 1 ใบ การ์ดใบนี้จะได้รับความสามารถ DoubleStrike"
+   }
+  ],
+  "flavor": "“หากบัลลังก์ต้องการให้ข้าเป็นตำนาน ข้าก็จะเป็นตำนานในแบบที่ข้าเลือกเอง”",
+  "image": "/images/SD03-009SR.jpg"
+ },
+ {
+  "id": "SD03-010",
+  "deck": "SD03",
+  "no": "010",
+  "name": "เส้นทางแห่งอัศวิน",
+  "type": "Spell",
+  "sub": "Enchant",
+  "element": "ดิน",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "ChatGPT",
+  "cost": 2,
+  "sc": 2,
+  "tribe": "วิถี",
+  "effects": [
+   {
+    "keyword": "COST",
+    "text": "SpellCost: Spend 2 Element"
+   },
+   {
+    "keyword": "",
+    "text": "เปิดการ์ด 7 ใบบนสุดของ Main Deck ของคุณ เลือก Unit ที่มีชื่อ \"ดาบในหิน\" 1 ใบจากในนั้น แสดงการ์ดใบนั้นให้ฝ่ายตรงข้ามดู อัญเชิญลงที่ Action Zone แล้วนำการ์ดที่เหลือเรียงไว้ใต้ Main Deck"
+   }
+  ],
+  "flavor": "“ไม่มีเส้นทางใดนำไปสู่ตำนานโดยตรง ทุกก้าวล้วนต้องแลกมาด้วยการตัดสินใจ”",
+  "image": "/images/SD03-010.jpg"
+ },
+ {
+  "id": "SD03-011",
+  "deck": "SD03",
+  "no": "011",
+  "name": "เส้นทางแห่งคมดาบ",
+  "type": "Spell",
+  "sub": "Enchant",
+  "element": "ดิน",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "ChatGPT",
+  "cost": 2,
+  "sc": 2,
+  "tribe": "วิถี",
+  "effects": [
+   {
+    "keyword": "COST",
+    "text": "SpellCost: Spend 2 Element"
+   },
+   {
+    "keyword": "",
+    "text": "เปิดการ์ด 7 ใบบนสุดของ Main Deck ของคุณ เลือกการ์ด Equipment ที่มีชื่อ \"ดาบ\" 1 ใบจากในนั้น แสดงการ์ดใบนั้นให้ฝ่ายตรงข้ามดู นำขึ้นมือ แล้วนำการ์ดที่เหลือเรียงไว้ใต้ Main Deck"
+   }
+  ],
+  "flavor": "“คมดาบถูกหลอมด้วยไฟฉันใด เจตจำนงของนักรบก็ถูกหลอมด้วยความยากลำบากฉันนั้น”",
+  "image": "/images/SD03-011.jpg"
+ },
+ {
+  "id": "SD03-012",
+  "deck": "SD03",
+  "no": "012",
+  "name": "ยุทธาการที่คัมลานน์",
+  "type": "Spell",
+  "sub": "Enchant",
+  "element": "ดิน",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "ChatGPT",
+  "cost": 2,
+  "sc": 2,
+  "tribe": "ยุทธาการ",
+  "effects": [
+   {
+    "keyword": "COST",
+    "text": "SpellCost: Spend 2 Element"
+   },
+   {
+    "keyword": "",
+    "text": "ร่ายได้เมื่อมีการ์ดที่ชื่อ “มอเดร็ท” อยู่บนสนาม เลือก Unit ที่ชื่อ “มอเดร็ท” 1 ใบ ได้รับ:"
+   },
+   {
+    "keyword": "AUTO",
+    "text": "เมื่อ Unit นี้ทำลาย Unit ฝ่ายตรงข้ามสำเร็จ เปลี่ยนสภาพเป็น Stand และสามารถโจมตีได้อีกครั้ง จนจบเทิร์น"
+   }
+  ],
+  "flavor": "“ในสนามรบแห่งคัมลานน์ ไม่มีผู้ใดได้รับชัยชนะอย่างแท้จริง มีเพียงผู้ที่ยังยืนอยู่ท่ามกลางซากปรักหักพัง”",
+  "image": "/images/SD03-012.jpg"
+ },
+ {
+  "id": "SD03-013",
+  "deck": "SD03",
+  "no": "013",
+  "name": "เจตจำนงแห่งคาเมลอต",
+  "type": "Spell",
+  "sub": "Enchant",
+  "element": "ดิน",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "ChatGPT",
+  "cost": 1,
+  "sc": 1,
+  "tribe": "เจตจำนง",
+  "effects": [
+   {
+    "keyword": "COST",
+    "text": "SpellCost: Spend 1 Element"
+   },
+   {
+    "keyword": "",
+    "text": "ในเทิร์นก่อนของฝ่ายตรงข้าม ถ้า Unit ฝ่ายเราถูกทำลายจากการโจมตี จั่วการ์ด 1 ใบจาก Main Deck ถ้าการ์ดถูกทำลายนั้นเป็นเผ่า “อัศวินโต๊ะกลม” ได้จั่วการ์ด 2 ใบแทน เทิร์นนี้ ถ้าใช้ “เจตจำนงแห่งคาเมลอต” ใบอื่นไปแล้ว จะไม่สามารถใช้การ์ดใบนี้อีกได้"
+   }
+  ],
+  "flavor": "“อัศวินหนึ่งคนอาจล้มลงได้ แต่คำสาบานที่พวกเขาร่วมกันให้ไว้จะไม่ล้มตาม”",
+  "image": "/images/SD03-013.jpg"
+ },
+ {
+  "id": "SD03-014",
+  "deck": "SD03",
+  "no": "014",
+  "name": "ศิลาแห่งการคัดสรร",
+  "type": "Spell",
+  "sub": "Enchant",
+  "element": "ดิน",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "ChatGPT",
+  "tribe": "เจตจำนง",
+  "effects": [
+   {
+    "keyword": "",
+    "text": "เปิดการ์ดใบบนสุดของ Main Deck 3 ใบ เลือกการ์ดเผ่า “อัศวินโต๊ะกลม” หรือ Equipment 1 ใบ ที่เจอ ส่งลงกองทิ้ง การ์ดที่เหลือวางกลับใต้กองตามลำดับที่ต้องการ"
+   }
+  ],
+  "flavor": "“คุณค่าของสิ่งหนึ่ง มิได้อยู่ที่การถูกเก็บรักษา แต่อยู่ที่การถูกเลือกในเวลาที่เหมาะสม”",
+  "image": "/images/SD03-014.jpg"
+ },
+ {
+  "id": "SD03-015",
+  "deck": "SD03",
+  "no": "015",
+  "name": "ตำนานที่ถูกสืบทอด",
+  "type": "Spell",
+  "sub": "Enchant",
+  "element": "ดิน",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "ChatGPT",
+  "cost": 3,
+  "sc": 3,
+  "tribe": "เจตจำนง",
+  "effects": [
+   {
+    "keyword": "COST",
+    "text": "SpellCost: Spend 3 Element"
+   },
+   {
+    "keyword": "",
+    "text": "เลือก Equipment 1 ใบจากสนามคุณ ส่งลงกองทิ้ง จากนั้นเลือก Unit เผ่า “อัศวินโต๊ะกลม” จากกองทิ้ง 1 ใบ นำเข้าสู่ Action Zone (ความสามารถ Advent ไม่ทำงาน)"
+   }
+  ],
+  "flavor": "“วีรบุรุษอาจจากไป แต่สิ่งที่พวกเขาทิ้งไว้จะกลายเป็นอาวุธในมือของคนรุ่นต่อไป”",
+  "image": "/images/SD03-015.jpg"
+ },
+ {
+  "id": "SD03-016",
+  "deck": "SD03",
+  "no": "016",
+  "name": "การปกปักษ์แห่งอัศวิน",
+  "type": "Spell",
+  "sub": "Counter",
+  "element": "ดิน",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "ChatGPT",
+  "cost": 1,
+  "sc": 1,
+  "tribe": "เจตจำนง",
+  "effects": [
+   {
+    "keyword": "COST",
+    "text": "SpellCost: Spend 1 Element"
+   },
+   {
+    "keyword": "",
+    "text": "เมื่อฝั่งตรงข้ามประกาศโจมตี ยกเลิกการโจมตีนั้น"
+   }
+  ],
+  "flavor": "“ตราบใดที่โล่ยังไม่แตก ตราบนั้นความหวังของผู้ที่อยู่ข้างหลังจะยังไม่ดับสูญ”",
+  "image": "/images/SD03-016.jpg"
+ },
+ {
+  "id": "SD03-017",
+  "deck": "SD03",
+  "no": "017",
+  "name": "ดาบคาลิเบิร์น",
+  "type": "Spell",
+  "sub": "Equipment",
+  "element": "ดิน",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "ChatGPT",
+  "cost": 3,
+  "sc": 3,
+  "tribe": "ศักดิ์สิทธิ์",
+  "effects": [
+   {
+    "keyword": "COST",
+    "text": "EquipCost: Spend 3 Element"
+   },
+   {
+    "keyword": "",
+    "text": "Unit ที่สวมใส่ได้รับ ATK +2"
+   },
+   {
+    "keyword": "AUTO",
+    "text": "Unit ที่สวมใส่การ์ดใบนี้อยู่ จะไม่ถูกทำลาย ด้วยความสามารถการ์ดใดๆ"
+   },
+   {
+    "keyword": "AUTO",
+    "text": "Unit ใบอื่นที่มีคุณสมบัติ “อัศวินโต๊ะกลม” ฝ่ายเราทุกตัว ได้รับ DEF +1 และ ATK +1"
+   }
+  ],
+  "flavor": "“ดาบเล่มนี้มิได้มอบพลังให้ผู้ถือครอง หากแต่เปิดเผยว่าผู้ถือครองมีพลังมากเพียงใด”",
+  "image": "/images/SD03-017.jpg"
+ },
+ {
+  "id": "SD03-018",
+  "deck": "SD03",
+  "no": "018",
+  "name": "นครศักดิ์สิทธิ์ คาเมลอต",
+  "type": "Spell",
+  "sub": "Domain",
+  "element": "ดิน",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "ChatGPT",
+  "cost": 3,
+  "sc": 3,
+  "tribe": "เมือง",
+  "effects": [
+   {
+    "keyword": "COST",
+    "text": "CastCost: Spend 3 Element"
+   },
+   {
+    "keyword": "ACTIVATE 1/turn",
+    "text": "ทำลายการ์ดที่ชื่อ “ดาบในหิน” บน Action Zone เรา 1 ใบ สามารถอัญเชิญ Unit ที่ชื่อ “อาเทอร์” จากกองทิ้งมาที่ Action Zone ได้ เมื่อทำ นำการ์ด Equipment เผ่า “ศักดิ์สิทธิ์” 1 ใบจากบนมือ ติดให้ Unit นั้น"
+   }
+  ],
+  "flavor": "“คาเมลอตไม่ใช่เพียงเมืองที่ราชาประทับอยู่ แต่คือคำสัญญาว่าสักวันหนึ่ง มนุษย์จะสร้างโลกที่ดีกว่าเดิมได้”",
+  "image": "/images/SD03-018.jpg"
+ },
+ {
+  "id": "SD03-019",
+  "deck": "SD03",
+  "no": "019",
+  "name": "เส้นทางตำนานแห่งราชันนิรันดร์",
+  "type": "Ultimate",
+  "element": "ดิน",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "ChatGPT",
+  "cost": 6,
+  "sc": 6,
+  "tribe": "ตำนาน",
+  "effects": [
+   {
+    "keyword": "COST",
+    "text": "CastCost: Spend 6 Element"
+   },
+   {
+    "keyword": "",
+    "text": "เลือก Unit ฝ่ายเรา 1 ใบที่อยู่ในสภาพนอน ทำให้ Unit นั้นกลับสู่สภาพ Stand และสามารถโจมตีได้ 1 ครั้งในช่วง Ultimate Phase ของเทิร์นนี้ หากบนสนามมี Domain ชื่อ “คาเมลอต” และ Unit นั้นสวมใส่ Equipment เผ่า “ศักดิ์สิทธิ์” อยู่ Unit นั้นจะมี ATK อนันต์และ CRI +3 จนจบการโจมตี โดยการโจมตีนี้ถือเป็นการใช้ความสามารถของการ์ด Ultimate"
+   }
+  ],
+  "flavor": "“ในวินาทีที่ราชันชักดาบแห่งตำนาน แม้แต่ชะตากรรมก็ต้องหยุดฟังเสียงคำตัดสินของเขา”",
+  "image": "/images/SD03-019.jpg"
+ }
+]
