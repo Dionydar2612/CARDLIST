@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="th"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Admin – Card Battle</title>
+<style>
+:root{--bg:#fbfbf7;--ink:#111;--card:#fff;--mut:#666;--ok:#1a7f37;--bad:#c0121f;--warn:#9a6700;--pap:#fff8ec;--gold:#ffc20e;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root{--bg:#15171a;--ink:#f2f2f2;--card:#22252a;--mut:#aaa;--ok:#4cc16b;--bad:#ff6b6b;--warn:#e3b341;--pap:#2d2a22}}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 'Mali',Tahoma,'Noto Sans Thai',sans-serif}
+main{max-width:1100px;margin:0 auto;padding:18px 14px 60px}
+h1{font-size:1.6rem;margin:0}h2{margin:0 0 10px;font-size:1.2rem}h3{margin:14px 0 6px;font-size:1rem;color:var(--mut)}
+.box{border:3px solid var(--ink);border-radius:14px;background:var(--card);box-shadow:4px 4px 0 var(--ink);padding:16px;margin-bottom:16px}
+input,select,button{font:inherit;color:var(--ink);background:var(--card);border:2px solid var(--ink);border-radius:10px;padding:6px 10px}
+input[type=file]{width:100%}
+button{cursor:pointer;font-weight:700}button:hover{background:var(--gold);color:#111}
+button.pri{background:var(--ink);color:var(--bg)}button.pri:hover{background:var(--gold);color:#111}
+button:disabled{opacity:.4;cursor:not-allowed}button.del{border-color:var(--bad);color:var(--bad)}
+.top{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}.tabs button{border-radius:99px}.tabs button.on{background:var(--ink);color:var(--bg)}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:8px 0}
+.tbl{width:100%;border-collapse:collapse;display:block;overflow-x:auto}
+.tbl th,.tbl td{border-bottom:1px solid var(--mut);padding:6px 8px;text-align:left;vertical-align:middle;white-space:nowrap}
+.tbl td input{width:100%;min-width:70px;padding:3px 6px}
+.map{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:8px 16px}
+.map label{display:flex;flex-direction:column;font-size:.85rem;font-weight:700}.map select{width:100%;font-weight:400}
+.req::after{content:" *";color:var(--bad)}
+.msg{padding:10px 12px;border-radius:10px;border:2px solid;margin:8px 0;white-space:pre-wrap}
+.msg.ok{border-color:var(--ok);color:var(--ok)}.msg.bad{border-color:var(--bad);color:var(--bad)}.msg.warn{border-color:var(--warn);color:var(--warn)}
+.mut{color:var(--mut)}.tag{display:inline-block;border-radius:99px;padding:0 10px;font-size:.8rem;font-weight:700;color:#fff}
+.tag.new{background:var(--ok)}.tag.updated{background:#1b4aa8}
+.thumb{width:36px;height:50px;object-fit:cover;border-radius:4px;border:1px solid var(--mut);vertical-align:middle}
+.drop{border:3px dashed var(--ink);border-radius:14px;padding:26px;text-align:center}.drop.over{background:var(--pap)}
+ul.l{margin:6px 0;padding-left:20px}
+#login{max-width:380px;margin:60px auto}
+[hidden]{display:none!important}
+</style></head><body><main>
+
+<div id="login" class="box" hidden>
+  <h2>🔐 Admin</h2>
+  <p id="loginInfo" class="mut"></p>
+  <div class="row"><input id="pw" type="password" placeholder="รหัสผ่าน" autocomplete="current-password" style="flex:1"><button class="pri" id="loginBtn">เข้าสู่ระบบ</button></div>
+  <div id="loginErr" class="msg bad" hidden></div>
+</div>
+
+<div id="app" hidden>
+  <div class="top"><h1>🃏 Card Battle – Admin</h1>
+    <div class="row"><a href="/" target="_blank" style="color:inherit">เปิดหน้าเว็บ ↗</a><button id="logout">ออกจากระบบ</button></div></div>
+  <div class="tabs" id="tabs">
+    <button data-t="import" class="on">นำเข้า Excel</button><button data-t="single">+ เพิ่มการ์ด 1 ใบ</button><button data-t="cards">การ์ด</button><button data-t="decks">เด็ค</button>
+    <button data-t="images">รูปภาพ</button><button data-t="backups">สำรอง/กู้คืน</button></div>
+
+  <section id="t-import" class="box">
+    <h2>นำเข้าการ์ดจาก Excel / CSV</h2>
+    <div class="row"><a href="/admin/api/template.xlsx"><button>⬇ ดาวน์โหลดไฟล์ต้นแบบ</button></a>
+      <a href="/admin/api/export.xlsx"><button>⬇ ส่งออกการ์ดปัจจุบัน (.xlsx)</button></a>
+      <span class="mut">รองรับ .xlsx และ .csv (UTF-8)</span></div>
+    <h3>1) เลือกไฟล์</h3>
+    <input type="file" id="file" accept=".xlsx,.csv">
+    <h3>1.1) เลือกรูปการ์ด (ไม่บังคับ)</h3>
+    <p class="mut">เลือกหลายรูปพร้อมกันได้ ชื่อไฟล์ต้องตรงกับรหัสการ์ดที่ Excel สร้าง เช่น <code>SD01-001.jpg</code> หรือ <code>SD03-009SR.png</code> · รองรับ JPG/PNG/WEBP · ไม่เกิน 5MB ต่อรูป รูปและ Excel จะถูกตรวจสอบพร้อมกัน และจะบันทึกเมื่อกดยืนยันเท่านั้น</p>
+    <input type="file" id="importImgs" multiple accept="image/jpeg,image/png,image/webp">
+    <div id="chosenImgs" class="mut"></div>
+    <div id="imp-err" class="msg bad" hidden></div>
+    <div id="imp-body" hidden>
+      <h3>2) จับคู่คอลัมน์ <span class="mut">(ระบบเดาให้แล้ว ปรับได้ · * = จำเป็น)</span></h3>
+      <div class="row"><label>ชีท: <select id="sheet"></select></label><span id="sheetInfo" class="mut"></span></div>
+      <div class="map" id="map"></div>
+      <h3>3) โหมดนำเข้า</h3>
+      <div class="row">
+        <label><input type="radio" name="mode" value="merge" checked> เพิ่มใบใหม่ + อัปเดตใบที่ id ตรงกัน (ใบอื่นไม่แตะ)</label>
+        <label><input type="radio" name="mode" value="replace"> แทนที่ทั้งหมด (ใบที่ไม่อยู่ในไฟล์จะถูกลบ)</label></div>
+      <div class="row"><button id="preview">🔍 ตรวจสอบก่อน (ยังไม่บันทึก)</button><button id="commit" class="pri" disabled>💾 บันทึกเข้าระบบ</button></div>
+    </div>
+    <div id="imp-res"></div>
+  </section>
+
+  <section id="t-single" class="box" hidden>
+    <h2>เพิ่มการ์ดทีละ 1 ใบ (กรอกข้อมูลเอง)</h2>
+    <p class="mut">กรอกข้อมูลตามช่องด้านล่าง รหัสการ์ดจะสร้างให้อัตโนมัติจากเด็ค + เลขการ์ด + เวอร์ชันพิเศษ ตรวจตัวอย่างก่อนกดบันทึก ข้อมูลจะไม่ถูกบันทึกจนกว่าจะยืนยัน</p>
+    <form id="singleForm">
+      <h3>1) ข้อมูลหลัก</h3>
+      <div class="map">
+        <label><span class="req">เด็ค/ซีรีส์ *</span><input id="sf-deck" required maxlength="20" pattern="[A-Za-z0-9_-]+" placeholder="เช่น SD04 หรือ MY-DECK"><small class="mut">พิมพ์รหัสเด็ค/ซีรีส์เอง ใช้ A–Z, 0–9, ขีดกลาง (-) หรือขีดล่าง (_); หากยังไม่มีระบบจะสร้างรายการเด็คให้อัตโนมัติ</small></label>
+        <label><span class="req">เลขการ์ด *</span><input id="sf-no" required inputmode="numeric" pattern="[0-9]{1,4}" maxlength="4" placeholder="001"><small class="mut">ตัวเลข 1–4 หลัก เช่น 001</small></label>
+        <label><span>เวอร์ชันพิเศษ</span><input id="sf-variant" pattern="[A-Za-z0-9]*" placeholder="เว้นว่าง หรือ SR"><small class="mut">เช่น SR, UR; ใช้ A–Z/0–9</small></label>
+        <label><span class="req">ชื่อการ์ด *</span><input id="sf-name" required maxlength="160" placeholder="ชื่อการ์ด"></label>
+        <label><span class="req">ประเภทการ์ด *</span><select id="sf-type" required><option value="">— เลือกประเภท —</option><option>Avatar</option><option>Unit</option><option>Spell</option><option>Ultimate</option></select><small class="mut">Avatar / Unit / Spell / Ultimate</small></label>
+        <label><span>ประเภทย่อย</span><input id="sf-sub" placeholder="เช่น Domain"></label>
+        <label><span>ธาตุ</span><input id="sf-element" placeholder="เช่น ไฟ"></label>
+        <label><span>เผ่า</span><input id="sf-tribe" placeholder="เช่น มังกร"></label>
+        <label><span>ความหายาก</span><input id="sf-rarity" placeholder="เช่น C / R / SR"></label>
+        <label><span>Rotation</span><input id="sf-rotation" placeholder="เช่น A"></label>
+        <label><span>นักวาด</span><input id="sf-artist" placeholder="ชื่อนักวาด"></label>
+        <label><span>รูปการ์ด (ไม่บังคับ)</span><input id="sf-image" type="file" accept="image/jpeg,image/png,image/webp"><small class="mut">JPG/PNG/WEBP ไม่เกิน 5MB</small></label>
+      </div>
+      <h3>2) ค่าสถานะ (เว้นว่างได้ถ้าไม่มี)</h3>
+      <div class="map">
+        <label><span>Cost</span><input id="sf-cost" type="number" step="any" placeholder="เช่น 3"></label>
+        <label><span>CRI</span><input id="sf-cri" type="number" step="any" placeholder="เช่น 1"></label>
+        <label><span>ATK</span><input id="sf-atk" type="number" step="any" placeholder="เช่น 5"></label>
+        <label><span>DEF</span><input id="sf-def" type="number" step="any" placeholder="เช่น 4"></label>
+        <label><span>SC (ค่า Element ของ Spell)</span><input id="sf-sc" type="number" step="any" placeholder="ถ้ามี"></label>
+      </div>
+      <h3>3) เอฟเฟกต์ (กรอกได้สูงสุด 5 รายการ)</h3>
+      <p class="mut">หากมีเอฟเฟกต์ ให้ใส่ข้อความเอฟเฟกต์ คีย์เวิร์ดเป็นข้อมูลเสริม</p>
+      <div class="map">
+        <label><span>เอฟเฟกต์ 1 – คีย์เวิร์ด</span><input id="sf-effect1_keyword" placeholder="เช่น AUTO"></label><label><span>เอฟเฟกต์ 1 – ข้อความ *</span><textarea id="sf-effect1_text" rows="3" placeholder="ข้อความเอฟเฟกต์ข้อ 1"></textarea></label>
+        <label><span>เอฟเฟกต์ 2 – คีย์เวิร์ด</span><input id="sf-effect2_keyword"></label><label><span>เอฟเฟกต์ 2 – ข้อความ</span><textarea id="sf-effect2_text" rows="3"></textarea></label>
+        <label><span>เอฟเฟกต์ 3 – คีย์เวิร์ด</span><input id="sf-effect3_keyword"></label><label><span>เอฟเฟกต์ 3 – ข้อความ</span><textarea id="sf-effect3_text" rows="3"></textarea></label>
+        <label><span>เอฟเฟกต์ 4 – คีย์เวิร์ด</span><input id="sf-effect4_keyword"></label><label><span>เอฟเฟกต์ 4 – ข้อความ</span><textarea id="sf-effect4_text" rows="3"></textarea></label>
+        <label><span>เอฟเฟกต์ 5 – คีย์เวิร์ด</span><input id="sf-effect5_keyword"></label><label><span>เอฟเฟกต์ 5 – ข้อความ</span><textarea id="sf-effect5_text" rows="3"></textarea></label>
+        <label style="grid-column:1/-1"><span>ข้อความท้ายการ์ด / Flavor (ไม่บังคับ)</span><textarea id="sf-flavor" rows="2" placeholder="คำพูดหรือข้อความท้ายการ์ด"></textarea></label>
+      </div>
+      <div class="row"><button type="button" id="singlePreview">🔍 ตรวจสอบข้อมูล</button><button type="button" id="singleSave" class="pri" disabled>💾 ยืนยันและบันทึกการ์ด</button><button type="reset">ล้างฟอร์ม</button></div>
+    </form>
+    <div id="singlePreviewBox"></div>
+  </section>
+
+  <section id="t-cards" class="box" hidden>
+    <h2>การ์ดทั้งหมด <span id="cardCnt" class="mut"></span></h2>
+    <div class="row"><input id="cardQ" placeholder="ค้นหา id / ชื่อ" style="flex:1"><label><input type="checkbox" id="noImgOnly"> เฉพาะที่ยังไม่มีรูป</label></div>
+    <table class="tbl"><thead><tr><th>รูป</th><th>id</th><th>ชื่อ</th><th>ประเภท</th><th>ธาตุ</th><th></th></tr></thead><tbody id="cardRows"></tbody></table>
+  </section>
+
+  <section id="t-decks" class="box" hidden>
+    <h2>เด็ค / ซีรีส์</h2>
+    <p class="mut">ต้องมีเด็คก่อนจึงจะนำเข้าการ์ดของเด็คนั้นได้ (หรือใส่ชีท <b>decks</b> ในไฟล์ Excel ก็ได้)</p>
+    <table class="tbl"><thead><tr><th>id</th><th>ชื่อ</th><th>จำนวนใบ</th><th>Rotation</th><th>ธาตุ</th><th>ความหายาก</th><th>นักวาด</th><th></th></tr></thead><tbody id="deckRows"></tbody></table>
+    <div class="row"><button id="addDeck">+ เพิ่มเด็ค</button></div>
+  </section>
+
+  <section id="t-images" class="box" hidden>
+    <h2>อัปโหลดรูปการ์ด</h2>
+    <p class="mut">ตั้งชื่อไฟล์ตาม id ของการ์ด เช่น <code>SD04-001.jpg</code> · รองรับ jpg / png / webp · ไม่เกิน 5MB ต่อไฟล์ · ใส่รูปซ้ำ = แทนที่รูปเดิม</p>
+    <div class="drop" id="drop">ลากไฟล์มาวางที่นี่ หรือ <input type="file" id="imgs" multiple accept="image/jpeg,image/png,image/webp" style="width:auto"></div>
+    <div id="img-res"></div>
+    <h3>การ์ดที่ยังไม่มีรูป</h3><div id="noimg" class="mut"></div>
+  </section>
+
+  <section id="t-backups" class="box" hidden>
+    <h2>สำรอง / กู้คืน</h2>
+    <p class="mut">ระบบสำรองอัตโนมัติก่อนการแก้ไขทุกครั้ง (เก็บ 30 ครั้งล่าสุด) · กู้คืนจะสำรองสถานะปัจจุบันไว้ให้ด้วย</p>
+    <table class="tbl"><thead><tr><th>เวลา</th><th>สาเหตุ</th><th>การ์ด</th><th>เด็ค</th><th></th></tr></thead><tbody id="bakRows"></tbody></table>
+  </section>
+</div>
+
+<script>
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const show=(el,on=true)=>el.hidden=!on;
+async function api(path,opts={}){
+  opts.headers={...(opts.headers||{}),"X-Admin":"1"};opts.credentials="same-origin";
+  const r=await fetch("/admin/api"+path,opts);
+  if(r.status===401&&path!=="/login"){showLogin();throw new Error("หมดเวลาเข้าสู่ระบบ");}
+  const j=await r.json().catch(()=>({}));
+  if(!r.ok&&!j.errors)throw new Error(j.error||("ผิดพลาด "+r.status));
+  return j;
+}
+const jpost=(p,b)=>api(p,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(b)});
+
+/* ---------- login ---------- */
+async function start(){
+  const me=await fetch("/admin/api/me").then(r=>r.json());
+  if(me.authed){show($("login"),false);show($("app"));loadAll();return}
+  showLogin(me.enabled?"":"⚠ เซิร์ฟเวอร์ยังไม่ได้ตั้งค่า ADMIN_PASSWORD จึงยังเข้าใช้งานไม่ได้");
+}
+function showLogin(info){show($("app"),false);show($("login"));$("loginInfo").textContent=info||"กรุณาเข้าสู่ระบบ";$("pw").focus()}
+async function doLogin(){
+  show($("loginErr"),false);
+  try{await jpost("/login",{password:$("pw").value});$("pw").value="";start()}
+  catch(e){$("loginErr").textContent=e.message;show($("loginErr"))}
+}
+$("loginBtn").onclick=doLogin;$("pw").onkeydown=e=>{if(e.key==="Enter")doLogin()};
+$("logout").onclick=async()=>{await jpost("/logout",{});start()};
+
+/* ---------- tabs ---------- */
+$("tabs").onclick=e=>{const b=e.target.closest("button");if(!b)return;
+  [...$("tabs").children].forEach(x=>x.classList.toggle("on",x===b));
+  ["import","single","cards","decks","images","backups"].forEach(t=>show($("t-"+t),t===b.dataset.t));
+  if(b.dataset.t==="backups")loadBackups();else if(b.dataset.t!=="import")loadAll()};
+
+/* ---------- import ---------- */
+let info=null;
+const SAVED="cardMapV1";
+function renderMap(){
+  const sh=info.sheets.find(s=>s.name===$("sheet").value);
+  const saved=JSON.parse(localStorage.getItem(SAVED)||"{}");
+  const opts=['<option value="-1">— ไม่ใช้ —</option>',...sh.headers.map((h,i)=>`<option value="${i}">${esc(h)}</option>`)].join("");
+  $("sheetInfo").textContent=`${sh.rowCount} แถวข้อมูล`;
+  $("map").innerHTML=info.fields.map(f=>`<label><span class="${f.required?"req":""}">${esc(f.label)}</span><select data-k="${f.key}">${opts}</select></label>`).join("");
+  for(const s of $("map").querySelectorAll("select")){
+    const k=s.dataset.k;let v=sh.mapping[k];
+    const si=sh.headers.indexOf(saved[k]);if(si>=0)v=si;      // ใช้การจับคู่ที่เคยบันทึกไว้ถ้าหัวคอลัมน์ตรงกัน
+    s.value=String(v??-1);
+    if(s.value===""){s.value="-1"}
+    s.onchange=()=>{saveMap(sh);$("commit").disabled=true}
+  }
+  saveMap(sh);
+}
+function saveMap(sh){
+  const o={};for(const s of $("map").querySelectorAll("select")){const i=+s.value;if(i>=0)o[s.dataset.k]=sh.headers[i]}
+  localStorage.setItem(SAVED,JSON.stringify(o));
+}
+const curMap=()=>Object.fromEntries([...$("map").querySelectorAll("select")].map(s=>[s.dataset.k,+s.value]));
+$("sheet").onchange=()=>{renderMap();$("commit").disabled=true};
+$("importImgs").onchange=()=>{const fs=[...$("importImgs").files];$("chosenImgs").innerHTML=fs.length?`<p>เลือกรูปแล้ว ${fs.length} ไฟล์ (ตัวอย่าง 12 ไฟล์แรก):</p><div class="row">${fs.slice(0,12).map(f=>`<div style="width:100px;text-align:center"><img class="thumb" style="width:72px;height:100px;object-fit:contain" src="${URL.createObjectURL(f)}" alt=""><div style="font-size:11px;overflow-wrap:anywhere">${esc(f.name)}</div></div>`).join("")}</div>`:"ยังไม่ได้เลือกรูป (สามารถนำเข้า Excel อย่างเดียวได้)";$("commit").disabled=true};
+$("file").onchange=async()=>{
+  show($("imp-err"),false);show($("imp-body"),false);$("imp-res").innerHTML="";$("commit").disabled=true;
+  const f=$("file").files[0];if(!f)return;
+  const fd=new FormData();fd.append("file",f);
+  try{
+    info=await api("/import/inspect",{method:"POST",body:fd});
+    $("sheet").innerHTML=info.sheets.map(s=>`<option>${esc(s.name)}</option>`).join("");
+    $("sheet").value=info.defaultSheet;renderMap();show($("imp-body"));
+  }catch(e){$("imp-err").textContent=e.message;show($("imp-err"))}
+};
+async function run(dry){
+  const f=$("file").files[0];if(!f)return;
+  const mode=document.querySelector("input[name=mode]:checked").value;
+  if(!dry&&mode==="replace"&&!confirm("โหมดแทนที่ทั้งหมด: การ์ดที่ไม่อยู่ในไฟล์จะถูกลบ (มีสำรองให้กู้คืนได้) ต้องการดำเนินการต่อ?"))return;
+  const fd=new FormData();fd.append("file",f);[...$("importImgs").files].forEach(img=>fd.append("images",img));fd.append("sheet",$("sheet").value);fd.append("mapping",JSON.stringify(curMap()));fd.append("mode",mode);fd.append("dry",dry?"1":"0");
+  $("imp-res").innerHTML='<p class="mut">กำลังประมวลผล…</p>';
+  try{renderRes(await api("/import/run",{method:"POST",body:fd}))}
+  catch(e){$("imp-res").innerHTML=`<div class="msg bad">${esc(e.message)}</div>`}
+}
+function renderRes(r){
+  $("commit").disabled=true;let h="";
+  if(!r.ok){
+    h+=`<div class="msg bad"><b>พบข้อผิดพลาด ${r.errors.length} รายการ — ยังไม่ได้บันทึกอะไร</b><ul class="l">${r.errors.slice(0,100).map(e=>`<li>${esc(e)}</li>`).join("")}</ul>${r.errors.length>100?"…และอีกจำนวนหนึ่ง":""}</div>`;
+  }else{
+    const s=r.stats;
+    h+=`<div class="msg ok"><b>${r.dry?"ตรวจสอบผ่าน (ยังไม่ได้บันทึก)":"✅ บันทึกเรียบร้อยแล้ว"}</b><br>เพิ่มใหม่ ${s.added} · อัปเดต ${s.updated} · เหมือนเดิม ${s.same}${s.removed?` · ลบ ${s.removed}`:""} · รวมในระบบ ${s.total} ใบ${r.deckInfo?`<br>อ่านข้อมูลเด็คจากชีท "${esc(r.deckInfo.fromSheet)}" ${r.deckInfo.count} เด็ค`:""}${r.dry?"":"<br>หน้าเว็บ/API เห็นข้อมูลใหม่ภายใน ~1 นาที"}</div>`;
+    if(r.images)h+=`<div class="msg ${r.images.unmatched?.length?"warn":"ok"}"><b>รูปภาพ: ${r.images.total} ไฟล์ที่เลือก · จับคู่ได้ ${r.images.matched.length} ไฟล์</b>${r.images.matched.length?`<ul class="l">${r.images.matched.slice(0,100).map(im=>`<li>${esc(im.file)} → ${esc(im.id)}</li>`).join("")}</ul>`:""}${r.images.unmatched?.length?`<p>รูปที่ไม่พบรหัสการ์ด: ${r.images.unmatched.map(im=>esc(im.file)).join(", ")} (จะไม่ถูกบันทึก)</p>`:""}</div>`;
+    if(r.dry)$("commit").disabled=false;
+    if(r.changes.length)h+=`<table class="tbl"><thead><tr><th>สถานะ</th><th>id</th><th>ชื่อ</th></tr></thead><tbody>${r.changes.map(c=>`<tr><td><span class="tag ${c.status}">${c.status==="new"?"ใหม่":"อัปเดต"}</span></td><td>${esc(c.id)}</td><td>${esc(c.name)}</td></tr>`).join("")}</tbody></table>`;
+  }
+  if(r.warns?.length)h+=`<div class="msg warn"><b>คำเตือน ${r.warns.length} รายการ (ไม่บล็อกการนำเข้า)</b><ul class="l">${r.warns.slice(0,60).map(w=>`<li>${esc(w)}</li>`).join("")}</ul></div>`;
+  $("imp-res").innerHTML=h;
+  if(r.ok&&!r.dry){$("file").value="";$("importImgs").value="";$("chosenImgs").textContent="";show($("imp-body"),false);loadAll()}
+}
+$("preview").onclick=()=>run(true);$("commit").onclick=()=>run(false);
+
+/* ---------- เพิ่มการ์ดทีละใบ ---------- */
+const SF_KEYS=["deck","no","variant","name","type","sub","element","tribe","rarity","rotation","artist","cost","cri","atk","def","sc","effect1_keyword","effect1_text","effect2_keyword","effect2_text","effect3_keyword","effect3_text","effect4_keyword","effect4_text","effect5_keyword","effect5_text","flavor"];
+let singleChecked=false;
+function singleData(){const d={};for(const k of SF_KEYS){const el=$("sf-"+k);if(el)d[k]=el.value.trim()}return d}
+function singleId(d){return d.deck&&/^\d{1,4}$/.test(d.no)?`${d.deck}-${d.no.padStart(3,"0")}${d.variant||""}`:"(รหัสจะปรากฏเมื่อเลือกเด็คและเลขการ์ด)"}
+function fillSingleDecks(){ /* ช่องเด็ค/ซีรีส์ให้ผู้ใช้พิมพ์เอง */ }
+function invalidateSingle(){singleChecked=false;$("singleSave").disabled=true}
+$("singleForm").addEventListener("input",invalidateSingle);
+$("singleForm").addEventListener("change",e=>{invalidateSingle();if(e.target.id==="sf-image"){const f=e.target.files[0];if(f&&f.size>5*1024*1024){alert("รูปต้องมีขนาดไม่เกิน 5MB");e.target.value=""}}});
+$("singleForm").addEventListener("reset",()=>{setTimeout(()=>{invalidateSingle();$("singlePreviewBox").innerHTML=""},0)});
+$("singlePreview").onclick=()=>{
+  const d=singleData(), errs=[];
+  if(!d.deck)errs.push("เลือกเด็ค/ซีรีส์");if(!/^\d{1,4}$/.test(d.no))errs.push("เลขการ์ดต้องเป็นตัวเลข 1–4 หลัก");if(d.variant&&!/^[A-Za-z0-9]+$/.test(d.variant))errs.push("เวอร์ชันพิเศษใช้ A–Z/0–9 เท่านั้น");if(!d.name)errs.push("กรอกชื่อการ์ด");if(!d.type)errs.push("เลือกประเภทการ์ด");
+  for(let i=1;i<=5;i++)if(d[`effect${i}_keyword`]&&!d[`effect${i}_text`])errs.push(`เอฟเฟกต์ ${i}: กรุณาใส่ข้อความด้วย`);
+  const f=$("sf-image").files[0];if(f&&f.size>5*1024*1024)errs.push("รูปต้องมีขนาดไม่เกิน 5MB");
+  const id=singleId(d);if(CARDS.some(c=>c.id.toLowerCase()===id.toLowerCase()))errs.push(`รหัส ${id} มีอยู่ในระบบแล้ว`);
+  if(errs.length){$("singlePreviewBox").innerHTML=`<div class="msg bad"><b>กรุณาแก้ไขก่อนบันทึก</b><ul>${errs.map(e=>`<li>${esc(e)}</li>`).join("")}</ul></div>`;invalidateSingle();return}
+  const effects=[];for(let i=1;i<=5;i++)if(d[`effect${i}_text`])effects.push({keyword:d[`effect${i}_keyword`],text:d[`effect${i}_text`]});
+  const imagePreview=f?`<p>รูป: ${esc(f.name)} (${(f.size/1024).toFixed(0)} KB)</p>`:"<p>ยังไม่ได้เลือกรูป — สามารถอัปโหลดภายหลังได้</p>";
+  const stats=["cost","cri","atk","def","sc"].filter(k=>d[k]!=="").map(k=>`${k.toUpperCase()}: ${d[k]}`);
+  $("singlePreviewBox").innerHTML=`<div class="msg ok"><b>ตรวจสอบตัวอย่างการ์ด</b><p><b>รหัส:</b> ${esc(id)}<br><b>ชื่อ:</b> ${esc(d.name)}<br><b>ประเภท:</b> ${esc(d.type)}<br><b>เด็ค:</b> ${esc(d.deck)}<br><b>ประเภทย่อย:</b> ${esc(d.sub||"—")} · <b>ธาตุ:</b> ${esc(d.element||"—")} · <b>เผ่า:</b> ${esc(d.tribe||"—")}<br><b>ค่าสถานะ:</b> ${esc(stats.join(" · ")||"ไม่ได้ระบุ")}<br><b>เอฟเฟกต์:</b> ${effects.length?effects.map((e,i)=>`${i+1}. ${esc(e.keyword?`[${e.keyword}] `:"")}${esc(e.text)}`).join("<br>"):"ไม่มี"}<br><b>Flavor:</b> ${esc(d.flavor||"—")}</p>${imagePreview}<p>หากถูกต้อง กด “ยืนยันและบันทึกการ์ด”</p></div>`;
+  singleChecked=true;$("singleSave").disabled=false;
+};
+$("singleSave").onclick=async()=>{
+  if(!singleChecked)return;const d=singleData();if(!confirm(`ยืนยันบันทึกการ์ด ${singleId(d)} – ${d.name} ?`))return;
+  const fd=new FormData();for(const [k,v] of Object.entries(d))fd.append(k,v);const f=$("sf-image").files[0];if(f)fd.append("image",f);
+  $("singleSave").disabled=true;$("singlePreviewBox").innerHTML='<p class="mut">กำลังบันทึกการ์ด…</p>';
+  try{const r=await api("/cards",{method:"POST",body:fd});$("singlePreviewBox").innerHTML=`<div class="msg ok">บันทึกการ์ด ${esc(r.card.id)} สำเร็จ${r.imageSaved?" พร้อมรูปภาพ":" (ยังไม่มีรูปภาพ)"}</div>`;$("singleForm").reset();invalidateSingle();loadAll()}
+  catch(e){$("singlePreviewBox").innerHTML=`<div class="msg bad">บันทึกไม่สำเร็จ: ${esc(e.message)}</div>`;$("singleSave").disabled=false}
+};
+
+/* ---------- cards ---------- */
+let CARDS=[],DECKS=[];
+async function loadAll(){const j=await api("/cards");CARDS=j.data;DECKS=j.decks;renderCards();renderDecks();renderNoImg()}
+function renderCards(){
+  const q=$("cardQ").value.trim().toLowerCase(),noimg=$("noImgOnly").checked;
+  const list=CARDS.filter(c=>(!q||(c.id+" "+c.name).toLowerCase().includes(q))&&(!noimg||!c.image));
+  $("cardCnt").textContent=`(${list.length}/${CARDS.length})`;
+  $("cardRows").innerHTML=list.slice(0,300).map(c=>`<tr><td>${c.image?`<img class="thumb" src="${esc(c.image)}" loading="lazy">`:'<span class="mut">—</span>'}</td><td>${esc(c.id)}</td><td>${esc(c.name)}</td><td>${esc(c.type)}</td><td>${esc(c.element||"")}</td><td><button class="del" data-id="${esc(c.id)}">ลบ</button></td></tr>`).join("");
+}
+$("cardQ").oninput=renderCards;$("noImgOnly").onchange=renderCards;
+$("cardRows").onclick=async e=>{const b=e.target.closest("button.del");if(!b)return;
+  if(!confirm(`ลบการ์ด ${b.dataset.id} ?  (กู้คืนได้จากแท็บสำรอง)`))return;
+  try{await api("/cards/"+encodeURIComponent(b.dataset.id),{method:"DELETE"});loadAll()}catch(e){alert(e.message)}};
+
+/* ---------- decks ---------- */
+const DF=["id","name","total","rotation","element","rarity","artist"];
+function deckRow(d={}){return `<tr>${DF.map(k=>`<td><input data-k="${k}" value="${esc(d[k]??"")}" ${k==="id"&&d.id?"readonly":""}></td>`).join("")}<td><button data-act="save">บันทึก</button> ${d.id?'<button class="del" data-act="del">ลบ</button>':""}</td></tr>`}
+function renderDecks(){$("deckRows").innerHTML=DECKS.map(deckRow).join("");fillSingleDecks()}
+$("addDeck").onclick=()=>$("deckRows").insertAdjacentHTML("beforeend",deckRow());
+$("deckRows").onclick=async e=>{const b=e.target.closest("button");if(!b)return;const tr=b.closest("tr");
+  const v=Object.fromEntries([...tr.querySelectorAll("input")].map(i=>[i.dataset.k,i.value.trim()]));
+  try{
+    if(b.dataset.act==="save"){if(!v.id)return alert("ต้องใส่ id เด็ค");await api("/decks/"+encodeURIComponent(v.id),{method:"PUT",headers:{"Content-Type":"application/json"},body:JSON.stringify(v)})}
+    else{if(!confirm("ลบเด็ค "+v.id+" ?"))return;await api("/decks/"+encodeURIComponent(v.id),{method:"DELETE"})}
+    loadAll();
+  }catch(err){alert(err.message)}};
+
+/* ---------- images ---------- */
+function renderNoImg(){const m=CARDS.filter(c=>!c.image).map(c=>c.id);$("noimg").textContent=m.length?m.join(", "):"ครบทุกใบแล้ว 🎉"}
+async function sendImages(files){
+  if(!files.length)return;const fd=new FormData();[...files].forEach(f=>fd.append("files",f));
+  $("img-res").innerHTML='<p class="mut">กำลังอัปโหลด…</p>';
+  try{const j=await api("/images",{method:"POST",body:fd});
+    $("img-res").innerHTML=j.results.map(r=>r.ok?`<div class="msg ${r.hasCard?"ok":"warn"}">✔ ${esc(r.file)} → ${esc(r.saved)}${r.hasCard?"":" (ยังไม่มีการ์ด id นี้ในระบบ)"}</div>`:`<div class="msg bad">✘ ${esc(r.file)}: ${esc(r.error)}</div>`).join("");
+    loadAll();
+  }catch(e){$("img-res").innerHTML=`<div class="msg bad">${esc(e.message)}</div>`}
+}
+$("imgs").onchange=()=>{sendImages($("imgs").files);$("imgs").value=""};
+const drop=$("drop");
+["dragover","dragenter"].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.add("over")}));
+["dragleave","drop"].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.remove("over")}));
+drop.addEventListener("drop",e=>sendImages(e.dataTransfer.files));
+
+/* ---------- backups ---------- */
+async function loadBackups(){
+  const j=await api("/backups");
+  $("bakRows").innerHTML=j.data.map(b=>b.broken?"":`<tr><td>${esc(new Date(b.at).toLocaleString("th-TH"))}</td><td>${esc(b.note||"")}</td><td>${b.cards}</td><td>${b.decks}</td><td><button data-n="${esc(b.name)}">กู้คืน</button></td></tr>`).join("")||'<tr><td class="mut">ยังไม่มีข้อมูลสำรอง</td></tr>';
+}
+$("bakRows").onclick=async e=>{const b=e.target.closest("button");if(!b)return;
+  if(!confirm("กู้คืนข้อมูลชุดนี้? (สถานะปัจจุบันจะถูกสำรองไว้ก่อน)"))return;
+  try{await jpost("/backups/restore",{name:b.dataset.n});alert("กู้คืนแล้ว");loadAll();loadBackups()}catch(err){alert(err.message)}};
+
+start();
+</script></main></body></html>
