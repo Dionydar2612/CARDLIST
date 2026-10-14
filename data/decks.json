@@ -25,5 +25,14 @@
   "element": "ดิน",
   "rarity": "C",
   "artist": "ChatGPT"
+ },
+ {
+  "id": "SD04",
+  "name": "Savage Gladiator",
+  "total": 19,
+  "rotation": "A",
+  "element": "ไฟ",
+  "rarity": "C",
+  "artist": "ChatGPT"
  }
 ]
