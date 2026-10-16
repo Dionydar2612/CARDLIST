@@ -43,5 +43,13 @@
   "element": "มืด",
   "rarity": "C",
   "artist": "ChatGPT"
+ },
+ {
+  "id": "BT01",
+  "name": "BT01",
+  "total": 122,
+  "rotation": "A",
+  "rarity": "C",
+  "artist": "ChatGPT"
  }
 ]

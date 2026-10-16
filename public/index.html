@@ -99,7 +99,7 @@ function show(n){
  cur=(n+list.length)%list.length;const c=list[cur],d=DECKS[c.deck]||{};
  const st=c.type==="Unit"?`<div><small>Cost</small><b>${c.cost}</b></div><div><small>CRI</small><b>${c.cri}</b></div><div><small>ATK</small><b>${c.atk}</b></div><div><small>DEF</small><b>${c.def ?? c.defense ?? "-"}</b></div>`:(c.sc!=null?`<div><small>ค่า Element</small><b>${c.sc}</b></div>`:"");
  const ef=c.fx.length?c.fx.map(e=>`<p>${e[0]?`<span class="kw ${e[0].split(" ")[0]}">${e[0]}</span>`:""}${e[1]}</p>`).join(""):'<p style="color:var(--mut)">ไม่มีเอฟเฟกต์</p>';
- $("dlg").innerHTML=`<button class="x" onclick="closeM()" aria-label="ปิด">✕</button><div class="big">${pic(c)}</div><div><h2>${c.name}</h2><div class="code">${c.deck}-${c.no}/${d.total||"?"}</div><div class="tags"><span class="tag t-${c.type}">${c.type}</span>${c.sub?`<span class="tag">${c.sub}</span>`:""}<span class="tag gold">${c.deck} ${d.name||""}</span>${c.el?`<span class="tag" style="background:#fff;color:#111;border:2px solid ${(ELEMENTS[c.el]||{}).c||"#888"}">${ico(c.el)} ธาตุ${c.el}</span>`:""}${c.rar?`<span class="tag" style="background:#555">Rarity ${c.rar}</span>`:""}${c.rot?`<span class="tag" style="background:#555">Rotation ${c.rot}</span>`:""}</div>${st?`<div class="stats">${st}</div>`:""}${c.tribe?`<h3>เผ่า</h3><div class="tags"><span class="tag" style="background:#555">${c.tribe}</span></div>`:""}<h3>ผลหลัก</h3><div class="eff">${ef}</div>${c.fl?`<div class="fl">${c.fl}</div>`:""}<div class="meta">${c.code}${c.art?` · นักวาด: @${c.art}`:""}${c.rar?` · ความหายาก: ${c.rar}`:""}</div></div>`;
+ $("dlg").innerHTML=`<button class="x" onclick="closeM()" aria-label="ปิด">✕</button><div class="big">${pic(c)}</div><div><h2>${c.name}</h2><div class="code">${c.deck}-${c.no}/${d.total||"?"}</div><div class="tags"><span class="tag t-${c.type}">${c.type}</span>${c.sub?`<span class="tag">${c.sub}</span>`:""}<span class="tag gold">${c.deck} ${d.name||""}</span>${(c.els&&c.els.length?c.els:c.el?[c.el]:[]).map(e=>`<span class="tag" style="background:#fff;color:#111;border:2px solid ${(ELEMENTS[e]||{}).c||"#888"}">${ico(e)} ธาตุ${e}</span>`).join("")}${c.rar?`<span class="tag" style="background:#555">Rarity ${c.rar}</span>`:""}${c.rot?`<span class="tag" style="background:#555">Rotation ${c.rot}</span>`:""}</div>${st?`<div class="stats">${st}</div>`:""}${c.tribe?`<h3>เผ่า</h3><div class="tags"><span class="tag" style="background:#555">${c.tribe}</span></div>`:""}<h3>ผลหลัก</h3><div class="eff">${ef}</div>${c.fl?`<div class="fl">${c.fl}</div>`:""}<div class="meta">${c.code}${c.art?` · นักวาด: @${c.art}`:""}${c.rar?` · ความหายาก: ${c.rar}`:""}</div></div>`;
  $("modal").classList.add("open");
 }
 function closeM(){$("modal").classList.remove("open")}
@@ -111,7 +111,7 @@ async function boot(){
   window.ELEMENTS=es.data;
   window.DECKS=Object.fromEntries(ds.data.map(d=>[d.id,{name:d.name,total:d.total,rot:d.rotation,el:d.element,rar:d.rarity,art:d.artist}]));
   window.CARDS=cs.data.map(c=>({deck:c.deck,no:c.no,key:c.id,name:c.name,type:c.type,sub:c.sub,cost:c.cost,cri:c.cri,atk:c.atk,def:c.def,sc:c.sc,tribe:c.tribe,
-    fx:(c.effects||[]).map(e=>[e.keyword,e.text]),fl:c.flavor,el:c.element,rar:c.rarity,rot:c.rotation,art:c.artist,img:c.image}));
+    fx:(c.effects||[]).map(e=>[e.keyword,e.text]),fl:c.flavor,el:c.element,els:c.elements,rar:c.rarity,rot:c.rotation,art:c.artist,img:c.image}));
   init();
  }catch(err){document.getElementById("cnt").textContent="โหลดข้อมูลจาก API ไม่สำเร็จ: "+err.message}
 }

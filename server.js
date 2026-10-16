@@ -49,6 +49,11 @@ api.get("/cards", (req, res) => {
     for (const [k, vals] of Object.entries(f)) {
       if (!vals) continue;
       const v = String(c[k] ?? "").toLowerCase();
+      if (k === "element") { // Avatar หลายธาตุ: ตรงกับธาตุใดก็ได้ใน elements[]
+        const vs = [v, ...((c.elements || []).map((x) => String(x).toLowerCase()))];
+        if (!vs.some((x) => vals.includes(x))) return false;
+        continue;
+      }
       if (k === "tribe" ? !vals.some((x) => v.includes(x)) : !vals.includes(v)) return false;
     }
     if (kw && !kwOf(c).some((k) => kw.includes(k.toLowerCase()))) return false;
