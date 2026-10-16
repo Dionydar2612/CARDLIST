@@ -1992,5 +1992,503 @@
   ],
   "flavor": "“เมื่อคู่ต่อสู้คนสุดท้ายล้มลง สนามประลองไม่เหลือคำถาม มีเพียงผู้ชนะที่ยังยืนอยู่”",
   "image": "/images/SD04-019.jpg"
+ },
+ {
+  "id": "SD05-001",
+  "deck": "SD05",
+  "no": "001",
+  "name": "ฮัสซัน อิ ซับบาห์ ผู้มอบความตาย",
+  "type": "Avatar",
+  "element": "มืด",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "ChatGPT",
+  "tribe": "ผู้ตาย / นักฆ่า",
+  "effects": [
+   {
+    "keyword": "ACTIVATE 1/turn",
+    "text": "เลือก Unit ฝ่ายตรงข้ามที่อยู่ในสภาพนอน 1 ใบ Unit นั้นจะไม่เปลี่ยนเป็นสภาพ Stand ใน Start Phase ถัดไปของฝ่ายตรงข้าม และถูกส่งลงกองทิ้งเมื่อจบเทิร์นนั้น"
+   },
+   {
+    "keyword": "AUTO",
+    "text": "CastCost ของ Ultimate ที่ชื่อ “อิสมาอีลียะฮ์” ลดลง 1 ต่อ Unit ที่ชื่อ “ฮัสซัน” บนสนามฝ่ายคุณ"
+   }
+  ],
+  "flavor": "ไม่มีใครเคยเห็นหน้าเขา รู้เพียงว่าใครที่ได้ยินชื่อ ก็ไม่ได้ตื่นขึ้นมาอีก",
+  "image": "/images/SD05-001.jpg"
+ },
+ {
+  "id": "SD05-002",
+  "deck": "SD05",
+  "no": "002",
+  "name": "ฮัสซัน ตุ๊กตาต้องสาป",
+  "type": "Unit",
+  "element": "มืด",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "ChatGPT",
+  "cost": 1,
+  "cri": 0,
+  "atk": 1,
+  "def": 1,
+  "tribe": "นักฆ่า / คำสาป",
+  "effects": [
+   {
+    "keyword": "ADVENT",
+    "text": "เลือก Unit ฝ่ายตรงข้ามที่อยู่ในสภาพนอน 1 ใบ Unit นั้นจะไม่ Stand ใน Start Phase ถัดไปของฝ่ายตรงข้าม"
+   }
+  ],
+  "flavor": "“ตุ๊กตาไม่เคยร้องไห้ แต่ใครที่ถูกมันมองจะไม่มีวันลุกขึ้นอีก”",
+  "image": "/images/SD05-002.jpg"
+ },
+ {
+  "id": "SD05-003",
+  "deck": "SD05",
+  "no": "003",
+  "name": "ฮัสซัน ประกายแสง",
+  "type": "Unit",
+  "element": "มืด",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "ChatGPT",
+  "cost": 1,
+  "cri": 1,
+  "atk": 2,
+  "def": 0,
+  "tribe": "นักฆ่า / แสงสว่าง",
+  "effects": [
+   {
+    "keyword": "ADMONISH",
+    "text": "เลือก Unit ฝ่ายตรงข้าม 1 ใบที่มี Cost เท่ากับ ATK ของ Unit นี้ ทำลาย Unit นั้น"
+   }
+  ],
+  "flavor": "“แสงที่สว่างที่สุด คือแสงสุดท้ายก่อนความมืดจะกลืนกิน”",
+  "image": "/images/SD05-003.jpg"
+ },
+ {
+  "id": "SD05-004",
+  "deck": "SD05",
+  "no": "004",
+  "name": "ฮัสซัน แขนต้องสาป",
+  "type": "Unit",
+  "element": "มืด",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "ChatGPT",
+  "cost": 2,
+  "cri": 1,
+  "atk": 3,
+  "def": 1,
+  "tribe": "นักฆ่า / คำสาป",
+  "effects": [
+   {
+    "keyword": "ACTIVATE 1/turn",
+    "text": "[Spend 1 Dark Element] เลือก Unit ฝ่ายตรงข้ามที่อยู่ในสภาพนอน สูงสุด 2 ใบ ที่มี Cost ต่ำกว่าหรือเท่ากับ Cost ของการ์ดใบนี้ ทำลาย Unit เหล่านั้น"
+   }
+  ],
+  "flavor": "“แขนข้างนี้ไม่เคยพลาด เพราะมันไม่ต้องเล็ง”",
+  "image": "/images/SD05-004.jpg"
+ },
+ {
+  "id": "SD05-005",
+  "deck": "SD05",
+  "no": "005",
+  "name": "ฮัสซัน ร้อยหน้า",
+  "type": "Unit",
+  "element": "มืด",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "ChatGPT",
+  "cost": 2,
+  "cri": 1,
+  "atk": 4,
+  "def": 2,
+  "tribe": "นักฆ่า / ซ่อนเงา",
+  "effects": [
+   {
+    "keyword": "ACTIVATE 1/turn",
+    "text": "[Spend 2 Element] เลือก Unit ฝ่ายคุณ 1 ใบที่มีคำว่า “ฮัสซัน” ในชื่อการ์ด สั่งใช้ความสามารถของ Unit นั้นอีกครั้งโดยไม่ต้องจ่าย Cost (หากเป็นความสามารถที่ทำงานเมื่อเกิดเงื่อนไข ให้ถือว่าเงื่อนไขนั้นเกิดขึ้นอีกครั้ง)"
+   }
+  ],
+  "flavor": "“เจ้าไม่มีวันรู้ว่าคนข้างกายเป็นใคร จนกว่าเขาจะเลือกถอดหน้ากาก”",
+  "image": "/images/SD05-005.jpg"
+ },
+ {
+  "id": "SD05-006",
+  "deck": "SD05",
+  "no": "006",
+  "name": "ฮัสซัน หมวกแดง",
+  "type": "Unit",
+  "element": "มืด",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "ChatGPT",
+  "cost": 4,
+  "cri": 2,
+  "atk": 5,
+  "def": 1,
+  "tribe": "นักฆ่า / แวมไพร์",
+  "effects": [
+   {
+    "keyword": "ACTIVATE 1/turn",
+    "text": "[Spend 2 Element] เปลี่ยนสภาพการ์ดใบนี้เป็นนอน เลือก Unit ฝ่ายเรา 1 ใบ สามารถโจมตีได้ทันทีแม้จะพึ่งลงมาและสามารถโจมตีใส่ Avatar ได้โดยตรง จนจบเทิร์น เมื่อจบเทิร์น ทำลาย Unit นั้น"
+   }
+  ],
+  "flavor": "“ผ้าคลุมสีแดงไม่ได้ย้อมด้วยสี แต่ด้วยเลือดของผู้ที่ขวางทาง”",
+  "image": "/images/SD05-006.jpg"
+ },
+ {
+  "id": "SD05-007",
+  "deck": "SD05",
+  "no": "007",
+  "name": "มังกรมารกระดูก มากราฟ ดราก้อน",
+  "type": "Unit",
+  "element": "มืด",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "ChatGPT",
+  "cost": 5,
+  "cri": 3,
+  "atk": 6,
+  "def": 4,
+  "tribe": "มังกร / อันเดด",
+  "effects": [
+   {
+    "keyword": "ADVENT",
+    "text": "Unit ฝ่ายเราทุกใบบนสนามที่มีคำว่า “ฮัสซัน” ได้รับสามารถโจมตีได้แม้จะพึ่งลงมา"
+   },
+   {
+    "keyword": "AUTO",
+    "text": "การ์ดใบนี้มีชื่อเพิ่มเติมว่า “ฮัสซัน”"
+   }
+  ],
+  "flavor": "“เมื่อกระดูกยังจำเสียงเรียกของเจ้านายได้ ความตายก็ไม่ใช่จุดจบ”",
+  "image": "/images/SD05-007.jpg"
+ },
+ {
+  "id": "SD05-008",
+  "deck": "SD05",
+  "no": "008",
+  "name": "มังกรมารกระดูก เอทาริส ดราก้อน",
+  "type": "Unit",
+  "element": "มืด",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "ChatGPT",
+  "cost": 5,
+  "cri": 2,
+  "atk": 6,
+  "def": 4,
+  "tribe": "มังกร / อันเดด",
+  "effects": [
+   {
+    "keyword": "ADVENT",
+    "text": "เมื่อการ์ดนี้เข้าสู่สนาม คุณต้องเลือก 1 อย่าง ต่อไปนี้"
+   },
+   {
+    "keyword": "",
+    "text": "• ทำลาย Unit ฝ่ายตรงข้าม 1 ใบ"
+   },
+   {
+    "keyword": "",
+    "text": "• เลือกการ์ด 1 ใบจากกองทิ้งของคุณมาที่ Action Zone"
+   },
+   {
+    "keyword": "AUTO",
+    "text": "การ์ดใบนี้มีชื่อเพิ่มเติมว่า “ฮัสซัน”"
+   }
+  ],
+  "flavor": "“ความสูญสิ้น จะก่อกำเนิด”",
+  "image": "/images/SD05-008.jpg"
+ },
+ {
+  "id": "SD05-009",
+  "deck": "SD05",
+  "no": "009",
+  "name": "มังกรมารกระดูก เพลทา ดราก้อน",
+  "type": "Unit",
+  "element": "มืด",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "ChatGPT",
+  "cost": 5,
+  "cri": 2,
+  "atk": 5,
+  "def": 6,
+  "tribe": "มังกร / อันเดด",
+  "effects": [
+   {
+    "keyword": "AUTO",
+    "text": "ตราบเท่าที่การ์ดใบนี้ยังอยู่ ทุกครั้งที่จบเทิร์นแต่ละฝ่าย DEF ของ Unit ทุกใบ -1"
+   },
+   {
+    "keyword": "AUTO",
+    "text": "การ์ดใบนี้มีชื่อเพิ่มเติมว่า “ฮัสซัน”"
+   }
+  ],
+  "flavor": "“จงหมดสิ้น มวลมนุษย์”",
+  "image": "/images/SD05-009.jpg"
+ },
+ {
+  "id": "SD05-010",
+  "deck": "SD05",
+  "no": "010",
+  "name": "กลอุบายแห่งเงา",
+  "type": "Spell",
+  "sub": "Counter",
+  "element": "มืด",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "ChatGPT",
+  "sc": 1,
+  "tribe": "กลยุทธ์",
+  "effects": [
+   {
+    "keyword": "COST",
+    "text": "SpellCost: Spend 1 Element"
+   },
+   {
+    "keyword": "",
+    "text": "เมื่อฝั่งตรงข้ามประกาศโจมตี ให้นำ Unit ฝ่ายคุณ 1 ใบขึ้นมือ แล้วยกเลิกการโจมตีนั้น"
+   }
+  ],
+  "flavor": "“ศัตรูที่ฟันเงา จะพบว่าสิ่งที่ถูกตัดขาดคือตัวเขาเอง”",
+  "image": "/images/SD05-010.jpg"
+ },
+ {
+  "id": "SD05-011",
+  "deck": "SD05",
+  "no": "011",
+  "name": "ออร่าแห่งความตาย",
+  "type": "Spell",
+  "sub": "Counter",
+  "element": "มืด",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "ChatGPT",
+  "sc": 2,
+  "tribe": "มนตร์มรณะ",
+  "effects": [
+   {
+    "keyword": "COST",
+    "text": "SpellCost: Spend 2 Element"
+   },
+   {
+    "keyword": "",
+    "text": "เลือก Unit ฝ่ายตรงข้าม 1 ใบ ที่มี ATK 3 หรือต่ำกว่า ทำลาย Unit นั้น"
+   }
+  ],
+  "flavor": "“ความตายไม่เลือกหน้า แต่มันเลือกผู้ที่อ่อนแอที่สุดก่อนเสมอ”",
+  "image": "/images/SD05-011.jpg"
+ },
+ {
+  "id": "SD05-012",
+  "deck": "SD05",
+  "no": "012",
+  "name": "เจตจำนงแห่งความกล้า",
+  "type": "Spell",
+  "sub": "Enchant",
+  "element": "มืด",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "ChatGPT",
+  "sc": 1,
+  "tribe": "เจตจำนง",
+  "effects": [
+   {
+    "keyword": "COST",
+    "text": "SpellCost: Spend 1 Element"
+   },
+   {
+    "keyword": "",
+    "text": "เลือก Unit ฝ่ายเรา 1 ใบ ได้รับ ATK +3 จนจบเทิร์น"
+   }
+  ],
+  "flavor": "“ไม่ต้องกล้าหาญ แค่ไม่มีทางถอยก็พอ”",
+  "image": "/images/SD05-012.jpg"
+ },
+ {
+  "id": "SD05-013",
+  "deck": "SD05",
+  "no": "013",
+  "name": "อ้างว้าง เงียบเหงา คนเขลา ความตาย",
+  "type": "Spell",
+  "sub": "Enchant",
+  "element": "มืด",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "ChatGPT",
+  "sc": 3,
+  "tribe": "คำอธิษฐาน / ความตาย",
+  "effects": [
+   {
+    "keyword": "COST",
+    "text": "SpellCost: Spend 3 Element"
+   },
+   {
+    "keyword": "",
+    "text": "ร่ายได้เมื่อมี Unit ที่ชื่อ “ฮัสซัน” อยู่บนสนามฝ่ายคุณ ทำลาย Unit ที่ชื่อ “ฮัสซัน” ฝ่ายคุณ 1 ใบ จากนั้นจั่วการ์ด 1 ใบ แล้วเปิดการ์ด 5 ใบบนสุดของ Main Deck เลือก Unit ที่ชื่อ “ฮัสซัน” ได้สูงสุด 2 ใบ นำเข้าสู่ Action Zone โดยไม่ต้องจ่าย Cost (ความสามารถ Advent ทำงาน) แล้วนำการ์ดที่เหลือเรียงไว้ใต้ Main Deck"
+   }
+  ],
+  "flavor": "“บทสวดสำหรับผู้ที่ยังไม่รู้ว่าตัวเองตายไปแล้ว”",
+  "image": "/images/SD05-013.jpg"
+ },
+ {
+  "id": "SD05-014",
+  "deck": "SD05",
+  "no": "014",
+  "name": "ชีวิตแลกด้วยชีวิต",
+  "type": "Spell",
+  "sub": "Enchant",
+  "element": "มืด",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "ChatGPT",
+  "tribe": "มนตร์มรณะ",
+  "effects": [
+   {
+    "keyword": "COST",
+    "text": "SpellCost: พลังชีวิต 1 หน่วย"
+   },
+   {
+    "keyword": "",
+    "text": "สร้างความเสียหายใส่พลังชีวิตฝ่ายตรงข้าม 1 หน่วย"
+   }
+  ],
+  "flavor": "“ชีวิตหนึ่งที่ถูกนำไปแลก ย่อมต้องมีอีกชีวิตที่ถูกเอาไปด้วย”",
+  "image": "/images/SD05-014.jpg"
+ },
+ {
+  "id": "SD05-015",
+  "deck": "SD05",
+  "no": "015",
+  "name": "ป้อมปราการแห่งเลือด",
+  "type": "Spell",
+  "sub": "Domain",
+  "element": "มืด",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "ChatGPT",
+  "sc": 3,
+  "tribe": "ป้อมปราการ / ลึกลับ",
+  "effects": [
+   {
+    "keyword": "COST",
+    "text": "CastCost: Spend 3 Element"
+   },
+   {
+    "keyword": "ACTIVATE 1/turn",
+    "text": "[พลังชีวิต 1 หน่วย] เลือก Unit ฝ่ายเราที่ชื่อ “ฮัสซัน” 1 ใบ ได้รับ ATK +2 และสามารถโจมตีได้ทันทีแม้จะพึ่งลงมาในเทิร์นนี้ จนจบเทิร์น"
+   }
+  ],
+  "flavor": "“คำสาบานที่เขียนด้วยเลือด ไม่มีวันลบออก นอกจากด้วยเลือดของผู้ที่ขวาง”",
+  "image": "/images/SD05-015.jpg"
+ },
+ {
+  "id": "SD05-016",
+  "deck": "SD05",
+  "no": "016",
+  "name": "สวนสวรรค์แห่งอลามุต",
+  "type": "Spell",
+  "sub": "Domain",
+  "element": "มืด",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "ChatGPT",
+  "sc": 3,
+  "tribe": "สวน / ลวงตา",
+  "effects": [
+   {
+    "keyword": "COST",
+    "text": "CastCost: Spend 3 Element"
+   },
+   {
+    "keyword": "ACTIVATE 1/turn",
+    "text": "[Spend 1 Element] เลือก Unit ที่ชื่อ “ฮัสซัน” และมี Cost 2 หรือต่ำกว่า 1 ใบจากกองทิ้ง นำขึ้นมือ"
+   }
+  ],
+  "flavor": "“ผู้ที่ตายในสวนแห่งนี้ ล้วนเชื่อว่าตนได้ขึ้นสวรรค์ และพร้อมจะกลับมารับใช้อีกครั้ง”",
+  "image": "/images/SD05-016.jpg"
+ },
+ {
+  "id": "SD05-017",
+  "deck": "SD05",
+  "no": "017",
+  "name": "อสุราอาสัญ",
+  "type": "Spell",
+  "sub": "Equipment",
+  "element": "มืด",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "ChatGPT",
+  "tribe": "อาวุธ / ความตาย",
+  "effects": [
+   {
+    "keyword": "COST",
+    "text": "EquipCost: พลังชีวิต 1 หน่วย"
+   },
+   {
+    "keyword": "",
+    "text": "Unit ที่สวมใส่ได้รับ CRI + 1"
+   },
+   {
+    "keyword": "AUTO",
+    "text": "เมื่อ Unit ที่สวมใส่การ์ดใบนี้ ถูกนำออกจาก ActionZone นำการ์ดใบนี้ไปสวมใส่ให้ Unit ใบอื่น และทุกครั้งที่มีการเปลี่ยน Unit ที่สวมใส่การ์ดใบนี้ ความสามารถ CRI +1 จะถูกเพิ่มขึ้นอีก 1"
+   }
+  ],
+  "flavor": "“คมเคียวไม่ได้เกี่ยวข้าว มันเกี่ยวเวลาที่เหลืออยู่”",
+  "image": "/images/SD05-017.jpg"
+ },
+ {
+  "id": "SD05-018",
+  "deck": "SD05",
+  "no": "018",
+  "name": "ป้อมปราการมาเซียฟ",
+  "type": "Spell",
+  "sub": "Domain",
+  "element": "มืด",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "ChatGPT",
+  "sc": 3,
+  "tribe": "ป้อมปราการ / ลึกลับ",
+  "effects": [
+   {
+    "keyword": "COST",
+    "text": "CastCost: Spend 3 Element"
+   },
+   {
+    "keyword": "ACTIVATE 1/turn",
+    "text": "[Spend 1 Element] เลือก Unit ฝ่ายเรา 1 ใบ นำขึ้นมือ เมื่อทำสำเร็จเป็นสภาพ Element 2 ใบ (อย่างน้อย 1 ใบ) จากที่ Rest อยู่เป็น Stand"
+   }
+  ],
+  "flavor": "“ในป้อมแห่งนี้ ไม่มีใครเข้าออกโดยที่ประตูรู้ตัว”",
+  "image": "/images/SD05-018.jpg"
+ },
+ {
+  "id": "SD05-019",
+  "deck": "SD05",
+  "no": "019",
+  "name": "อิสมาอีลียะฮ์",
+  "type": "Ultimate",
+  "element": "มืด",
+  "rarity": "C",
+  "rotation": "A",
+  "artist": "ChatGPT",
+  "cost": 5,
+  "sc": 5,
+  "tribe": "ความตาย",
+  "effects": [
+   {
+    "keyword": "COST",
+    "text": "CastCost: Spend 5 Element"
+   },
+   {
+    "keyword": "",
+    "text": "เลือก Unit ฝ่ายตรงข้าม 1 ใบ ทำลาย Unit นั้น และสร้างความเสียหายใส่พลังชีวิตฝ่ายตรงข้าม 3 หน่วย"
+   }
+  ],
+  "flavor": "“เมื่อนามถูกเอ่ย ผู้ที่ถูกเรียกก็ไม่ต้องหายใจอีก”",
+  "image": "/images/SD05-019.jpg"
  }
 ]

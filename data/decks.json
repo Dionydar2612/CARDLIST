@@ -34,5 +34,14 @@
   "element": "ไฟ",
   "rarity": "C",
   "artist": "ChatGPT"
+ },
+ {
+  "id": "SD05",
+  "name": "Thirst for Death",
+  "total": 19,
+  "rotation": "A",
+  "element": "มืด",
+  "rarity": "C",
+  "artist": "ChatGPT"
  }
 ]
