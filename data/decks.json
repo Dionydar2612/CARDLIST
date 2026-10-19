@@ -45,6 +45,15 @@
   "artist": "ChatGPT"
  },
  {
+  "id": "SD06",
+  "name": "SD06",
+  "total": 19,
+  "rotation": "A",
+  "element": "น้ำ",
+  "rarity": "C",
+  "artist": "ChatGPT"
+ },
+ {
   "id": "BT01",
   "name": "BT01",
   "total": 122,
