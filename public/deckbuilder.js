@@ -7,7 +7,7 @@
   'use strict';
   const $ = id => document.getElementById(id);
   const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m]));
-  const LS_DECKS = 'cl-decks', LS_DRAFT = 'cl-draft';
+  const LS_DECKS = 'cl-decks';
   const TABS = [['Unit', 'Unit'], ['Spell', 'Spell'], ['Ultimate', 'Ultimate'], ['ALL', 'ALL']];
   const KORD = { Unit: 0, Enchant: 1, Counter: 2, Equipment: 3, Domain: 4, Ultimate: 5 };
   const KINDS = ['Unit', 'Enchant', 'Counter', 'Equipment', 'Domain', 'Ultimate'];
@@ -96,6 +96,8 @@
   }
   const b64 = s => { const u = new TextEncoder().encode(s); let b = ''; u.forEach(x => { b += String.fromCharCode(x); }); return btoa(b).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, ''); };
   const unb64 = s => { s = s.replace(/-/g, '+').replace(/_/g, '/'); while (s.length % 4) s += '='; const b = atob(s); return new TextDecoder().decode(Uint8Array.from(b, c => c.charCodeAt(0))); };
+  const SIM = 'https://avastfalltcgsim.onrender.com/';
+  const simLink = d => SIM + '#deck=' + b64(toText(d));
   const shareLink = d => location.origin + location.pathname + '#deck=' + b64(toText(d));
 
   /* ---------------- helpers UI ---------------- */
@@ -113,12 +115,16 @@
     const ta = document.createElement('textarea'); ta.value = text; ta.style.cssText = 'position:fixed;opacity:0'; document.body.appendChild(ta); ta.select();
     let ok = false; try { ok = document.execCommand('copy'); } catch (e) { } ta.remove(); return ok;
   }
-  const persistDraft = () => lsSet(LS_DRAFT, { id: S.id, name: S.name, avatar: S.avatar, counts: S.counts, edeck: S.edeck });
+  const snap = () => JSON.stringify([S.name, S.avatar, S.counts, S.edeck]);
+  let base = '';
+  const dirty = () => snap() !== base && !(S.id === null && !Object.keys(S.counts).length);
 
   /* ---------------- โครงหน้า ---------------- */
   function skeleton() {
     $('v-deck').innerHTML = `
-    <h1>Deckbuilder</h1>
+    <div id="dlist"></div>
+    <div id="dedit" hidden>
+    <div class="db-topbar"><button class="chip" data-a="back">← กลับไปรายการเด็ค</button><h1>Deckbuilder</h1></div>
     <p class="db-sub">จัดเด็ค 60 ใบ (Avatar 1 + Main Deck 59) ชื่อซ้ำได้ไม่เกิน 4 ใบ และ Element Deck 8 ใบ — เสร็จแล้วกด <b>แชร์ / คัดลอกข้อความ</b> แล้วนำไปวางที่ <b>"นำเข้าจากข้อความ"</b> ใน AvastFallTCGsim</p>
     <div class="db-wrap">
       <section class="db-pool">
@@ -128,7 +134,6 @@
         <div class="db-grid" id="dgrid"></div>
       </section>
       <aside class="db-side box" id="dside">
-        <div class="db-saved"><select id="dsaved" aria-label="เด็คที่บันทึกไว้"></select><button class="chip" data-a="new">＋ ใหม่</button></div>
         <label class="db-lbl">ชื่อเด็ค<input id="dname" type="text" maxlength="40"></label>
         <div class="db-head" id="dhead"></div>
         <div class="db-tabs" id="dtabs" role="tablist"></div>
@@ -137,12 +142,12 @@
         <div class="db-bot" id="dbot"></div>
       </aside>
     </div>
+    </div>
     <div id="dov" class="db-ov" hidden></div><div id="dbt" class="db-toast" role="status"></div>`;
     $('dfil').innerHTML = '';
     $('dq').addEventListener('input', e => { S.q = e.target.value; renderPool(); });
-    $('dname').addEventListener('input', e => { S.name = e.target.value; persistDraft(); });
+    $('dname').addEventListener('input', e => { S.name = e.target.value; });
     $('dfil').addEventListener('change', e => { const k = e.target.dataset.k; if (!k) return; S[k] = e.target.type === 'checkbox' ? e.target.checked : e.target.value; renderPool(); });
-    $('dsaved').addEventListener('change', e => { const v = e.target.value; if (v) loadDeck(v); });
     $('v-deck').addEventListener('click', onClick);
     $('dov').addEventListener('click', e => { if (e.target.id === 'dov') closeOv(); });
     addEventListener('keydown', e => { if (e.key === 'Escape' && !$('dov').hidden) closeOv(); });
@@ -194,22 +199,21 @@
       || '<span class="db-muted">ยังไม่มีการ์ดในเด็ค คลิกการ์ดทางซ้ายเพื่อใส่ลงเด็ค</span>';
     $('dbot').innerHTML = (errs.length ? `<div class="db-warn">${errs.map(esc).join('<br>')}</div>` : '<div class="good">✓ เด็คถูกต้อง พร้อมนำไปเล่นใน AvastFallTCGsim</div>') +
       `<div class="db-acts"><button class="chip pri" data-a="share">📤 แชร์ / คัดลอกข้อความ</button><button class="chip" data-a="save">💾 บันทึกเด็ค</button><button class="chip" data-a="import">📥 นำเข้าจากข้อความ</button><button class="chip" data-a="clear">ล้างเด็ค</button></div>`;
-    const saved = loadSaved();
-    $('dsaved').innerHTML = `<option value="">เด็คที่บันทึกไว้ (${saved.length})</option>` + saved.map(d => opt(d.id, S.id, d.name + ' · ' + sizeOf(d) + ' ใบ')).join('');
-    renderPool(); persistDraft();
+    renderPool();
   }
 
   /* ---------------- modal ---------------- */
   function openOv(html) { $('dov').innerHTML = `<div class="db-dlg box" role="dialog">${html}</div>`; $('dov').hidden = false; }
   function closeOv() { $('dov').hidden = true; $('dov').innerHTML = ''; }
 
-  function shareModal() {
-    const text = toText(S), link = shareLink(S), errs = validate(S);
-    openOv(`<h2>แชร์เด็ค: ${esc(S.name)}</h2>
+  let shareD = null;
+  function shareModal(d) {
+    d = shareD = d || S; const text = toText(d), errs = validate(d);
+    openOv(`<h2>แชร์เด็ค: ${esc(d.name)}</h2>
       ${errs.length ? `<div class="db-warn">เด็คนี้ยังไม่ถูกต้องตามกติกา (นำเข้าได้ แต่ต้องแก้ก่อนเล่น):<br>${errs.map(esc).join('<br>')}</div>` : ''}
       <p class="db-muted">คัดลอกข้อความนี้ แล้วไปที่ AvastFallTCGsim → <b>เด็คของฉัน → นำเข้าจากข้อความ</b> แล้ววาง</p>
       <textarea id="dtxt" class="db-ta" readonly>${esc(text)}</textarea>
-      <div class="db-acts"><button class="chip pri" data-a="copytxt">คัดลอกข้อความ</button><button class="chip" data-a="copylink">คัดลอกลิงก์แชร์</button><button class="chip" data-a="dl">ดาวน์โหลด .txt</button>
+      <div class="db-acts"><button class="chip pri" data-a="copytxt">คัดลอกข้อความ</button><button class="chip" data-a="copylink">คัดลอกลิงก์แชร์</button><a class="chip pri" href="${esc(simLink(d))}" target="_blank" rel="noopener">▶ เปิดใน Playtest (นำเข้าอัตโนมัติ)</a><button class="chip" data-a="dl">ดาวน์โหลด .txt</button>
       <button class="chip" data-a="closeov">ปิด</button></div>
       <p class="db-muted">ลิงก์แชร์เปิดแล้วจะโหลดเด็คนี้ในหน้า Deckbuilder นี้ (ผู้รับกดคัดลอกข้อความต่อเพื่อนำเข้า AvastFallTCGsim)</p>`);
   }
@@ -230,18 +234,41 @@
     S.id = d.id || null; S.name = d.name || DEFAULT_NAME; S.avatar = d.avatar && DEFS[d.avatar] ? d.avatar : null;
     S.counts = {}; for (const [id, n] of Object.entries(d.counts || {})) if (DEFS[id] && n > 0) S.counts[id] = Math.min(4, n);
     S.edeck = d.edeck && Object.values(d.edeck).some(n => n > 0) ? Object.assign({}, d.edeck) : null;
-    renderSide();
+    base = d.fresh ? '' : snap();
+    S.q = ''; if ($('dq')) $('dq').value = '';
+    setMode('edit'); renderSide();
   }
   function newDeck() {
     const f = Object.values(DEFS).filter(d => d.kind === 'Avatar').sort(cmpId)[0];
-    setDeck({ id: null, name: DEFAULT_NAME, avatar: f && f.id, counts: {}, edeck: null });
+    setDeck({ id: null, name: DEFAULT_NAME, avatar: f && f.id, counts: {}, edeck: null, fresh: true });
   }
   function loadDeck(id) { const d = loadSaved().find(x => x.id === id); if (d) setDeck(d); }
+  function setMode(m) { $('dlist').hidden = m !== 'list'; $('dedit').hidden = m !== 'edit'; S.mode = m; if (m === 'list') renderList(); }
+  function backToList() {
+    if (dirty() && !confirm('มีการแก้ไขที่ยังไม่ได้บันทึก ออกโดยไม่บันทึก?')) return;
+    S.id = null; closeOv(); setMode('list'); scrollTo(0, 0);
+  }
+  function renderList() {
+    const saved = loadSaved().sort((a, b) => (b.updated || 0) - (a.updated || 0));
+    const cards = saved.map(d => {
+      const av = DEFS[d.avatar], errs = validate(d), ed = edeckOf(d), sure = confirmDel === d.id;
+      const edTxt = Object.entries(ed).filter(([, n]) => n > 0).map(([k, n]) => k + ' ' + n).join(' · ') || '—';
+      return `<div class="db-deck box"><div class="db-dart">${av ? pic(av) : '<div class="noimg">—</div>'}</div>
+        <div class="db-dinfo"><h3>${esc(d.name)}</h3><div class="db-muted">Avatar: ${esc(av ? av.name : '—')} · ${sizeOf(d)}/60 ใบ</div><div class="db-muted">Element Deck: ${esc(edTxt)}</div>
+        ${errs.length ? `<div class="bad db-ds">⚠ ${esc(errs[0])}${errs.length > 1 ? ` (และอีก ${errs.length - 1} ข้อ)` : ''}</div>` : '<div class="good db-ds">✓ เด็คถูกต้อง</div>'}
+        <div class="db-acts"><button class="chip pri" data-a="edit" data-id="${esc(d.id)}">แก้ไข</button><button class="chip" data-a="lshare" data-id="${esc(d.id)}">แชร์ / คัดลอกข้อความ</button><button class="chip" data-a="dup" data-id="${esc(d.id)}">ทำสำเนา</button>
+        <button class="chip ${sure ? 'danger' : ''}" data-a="del" data-id="${esc(d.id)}">${sure ? 'ยืนยันลบ' : 'ลบ'}</button></div></div></div>`;
+    }).join('');
+    $('dlist').innerHTML = `<h1>Deckbuilder</h1><p class="db-sub">สร้างและเก็บเด็คของคุณ (เก็บในเบราว์เซอร์นี้) แล้วกด <b>แชร์ / คัดลอกข้อความ</b> เพื่อนำไปวางที่ <b>"นำเข้าจากข้อความ"</b> ใน AvastFallTCGsim</p>
+      <div class="db-lgrid">${cards}<button class="db-deck db-add" data-a="create"><span>＋</span>สร้างเด็คใหม่</button></div>
+      <div class="db-acts"><button class="chip" data-a="import">📥 นำเข้าจากข้อความ / ลิงก์</button></div>`;
+  }
+  let confirmDel = null;
   function saveDeck() {
     const a = loadSaved(), id = S.id || 'd' + Date.now().toString(36) + Math.random().toString(36).slice(2, 5);
     const rec = { id, name: (S.name || '').trim() || DEFAULT_NAME, avatar: S.avatar, counts: JSON.parse(JSON.stringify(S.counts)), edeck: S.edeck ? Object.assign({}, S.edeck) : null, updated: Date.now() };
     const i = a.findIndex(x => x.id === id); if (i >= 0) a[i] = rec; else a.push(rec);
-    S.id = id; S.name = rec.name;
+    S.id = id; S.name = rec.name; base = snap();
     toast(lsSet(LS_DECKS, a) ? 'บันทึกเด็คแล้ว ✓ (เก็บในเบราว์เซอร์นี้)' : 'บันทึกลงเครื่องไม่ได้');
     renderSide();
   }
@@ -262,13 +289,13 @@
     if (m) { try { txt = unb64(m[1]); } catch (e) { return importModal(txt, ['ลิงก์ไม่ถูกต้อง']); } }
     const r = parseText(txt);
     if (!Object.keys(r.counts).length && !r.avatar) return importModal(txt, ['ไม่พบการ์ดในข้อความ', ...r.warns]);
-    setDeck({ id: null, name: r.name, avatar: r.avatar, counts: r.counts, edeck: r.edeck });
+    setDeck({ id: null, name: r.name, avatar: r.avatar, counts: r.counts, edeck: r.edeck, fresh: true });
     if (r.warns.length) importModal(txt, ['นำเข้าแล้ว แต่มีบางบรรทัดถูกข้าม:', ...r.warns]); else { closeOv(); toast('นำเข้าเด็คแล้ว ✓'); }
   }
-  function download() {
-    const blob = new Blob([toText(S) + '\n'], { type: 'text/plain;charset=utf-8' });
+  function download(d) {
+    const blob = new Blob([toText(d) + '\n'], { type: 'text/plain;charset=utf-8' });
     const a = document.createElement('a'); a.href = URL.createObjectURL(blob);
-    a.download = (S.name || 'deck').replace(/[\\/:*?"<>|]+/g, '_') + '.txt'; document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+    a.download = (d.name || 'deck').replace(/[\\/:*?"<>|]+/g, '_') + '.txt'; document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 2000);
   }
 
   async function onClick(e) {
@@ -278,20 +305,25 @@
       case 'add': return add(id, 1);
       case 'sub': return add(id, -1);
       case 'tab': S.tab = t.dataset.v; return renderSide();
-      case 'new': return newDeck();
+      case 'create': return newDeck();
+      case 'back': return backToList();
+      case 'edit': return loadDeck(id);
+      case 'lshare': { const d = loadSaved().find(x => x.id === id); if (d) shareModal(d); return; }
+      case 'dup': { const a = loadSaved(), d = a.find(x => x.id === id); if (!d) return; a.push(Object.assign(JSON.parse(JSON.stringify(d)), { id: 'd' + Date.now().toString(36) + Math.random().toString(36).slice(2, 5), name: d.name + ' (สำเนา)', updated: Date.now() })); lsSet(LS_DECKS, a); return renderList(); }
+      case 'del': { if (confirmDel !== id) { confirmDel = id; return renderList(); } lsSet(LS_DECKS, loadSaved().filter(x => x.id !== id)); confirmDel = null; toast('ลบเด็คแล้ว'); return renderList(); }
       case 'save': return saveDeck();
       case 'clear': if (Object.keys(S.counts).length && !confirm('ล้างการ์ดทั้งหมดในเด็คนี้?')) return; S.counts = {}; return renderSide();
       case 'avopen': return avatarModal();
       case 'avpick': S.avatar = id; closeOv(); return renderSide();
       case 'edm': { const cur = Object.assign({}, edeckOf(S)); const v = Math.max(0, (cur[t.dataset.k] || 0) + +t.dataset.d); if (v) cur[t.dataset.k] = v; else delete cur[t.dataset.k]; S.edeck = cur; return renderSide(); }
       case 'edauto': S.edeck = null; return renderSide();
-      case 'share': return shareModal();
+      case 'share': return shareModal(S);
       case 'import': return importModal('', []);
       case 'doimport': return doImport();
       case 'closeov': return closeOv();
-      case 'copytxt': return toast(await copy(toText(S)) ? 'คัดลอกข้อความแล้ว ✓' : 'คัดลอกไม่ได้ เลือกข้อความแล้วกด Ctrl+C');
-      case 'copylink': return toast(await copy(shareLink(S)) ? 'คัดลอกลิงก์แล้ว ✓' : 'คัดลอกไม่ได้');
-      case 'dl': return download();
+      case 'copytxt': return toast(await copy(toText(shareD || S)) ? 'คัดลอกข้อความแล้ว ✓' : 'คัดลอกไม่ได้ เลือกข้อความแล้วกด Ctrl+C');
+      case 'copylink': return toast(await copy(shareLink(shareD || S)) ? 'คัดลอกลิงก์แล้ว ✓' : 'คัดลอกไม่ได้');
+      case 'dl': return download(shareD || S);
     }
   }
 
@@ -305,7 +337,7 @@
   function fromHash() {
     const m = location.hash.match(/^#deck=([A-Za-z0-9_-]+)/);
     if (m) {
-      try { const r = parseText(unb64(m[1])); setDeck({ id: null, name: r.name, avatar: r.avatar, counts: r.counts, edeck: r.edeck }); showView('deck'); toast('โหลดเด็คจากลิงก์แล้ว'); return true; } catch (e) { }
+      try { const r = parseText(unb64(m[1])); setDeck({ id: null, name: r.name, avatar: r.avatar, counts: r.counts, edeck: r.edeck, fresh: true }); showView('deck'); toast('โหลดเด็คจากลิงก์แล้ว'); return true; } catch (e) { }
     }
     if (location.hash === '#deckbuilder') { showView('deck'); return true; }
     return false;
@@ -316,8 +348,7 @@
       if (inited) return; inited = true;
       buildDefs(); skeleton(); renderFilters();
       document.querySelectorAll('.sitetabs a[data-v]').forEach(a => a.addEventListener('click', ev => { ev.preventDefault(); showView(a.dataset.v); }));
-      const draft = lsGet(LS_DRAFT);
-      if (draft && (draft.avatar || Object.keys(draft.counts || {}).length)) setDeck(draft); else newDeck();
+      setMode('list');
       fromHash();
       addEventListener('hashchange', fromHash);
     }

@@ -77,12 +77,18 @@ h3{color:var(--mut);margin:10px 0 6px}
 .db-mini{display:grid;grid-template-columns:repeat(auto-fill,minmax(70px,1fr));gap:8px;min-height:60px}.db-m .db-step{margin-top:3px}.db-m .db-step button{width:24px;height:24px}
 .db-muted{color:var(--mut);font-size:.9rem}
 .db-warn{border:2px solid #c0121f;background:rgba(192,18,31,.1);border-radius:10px;padding:8px 10px;font-size:.85rem}
-.db-acts{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}.chip.pri{background:var(--gold);color:#111;font-weight:700}
+.db-acts{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}a.chip{text-decoration:none;display:inline-block}.chip.pri{background:var(--gold);color:#111;font-weight:700}
 .db-ov{position:fixed;inset:0;background:rgba(0,0,0,.7);display:flex;align-items:center;justify-content:center;padding:12px;z-index:20}
 .db-dlg{background:var(--card);padding:20px;max-width:620px;width:100%;max-height:100%;overflow:auto}.db-dlg h2{margin:0 0 8px}
 .db-ta{width:100%;min-height:220px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.85rem;border:3px solid var(--ink);border-radius:12px;padding:10px;background:var(--bg);color:var(--ink);margin:8px 0}
 .db-avg{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:10px}.db-avc{font:inherit;color:var(--ink);background:none;border:2px solid transparent;border-radius:10px;padding:4px;cursor:pointer;text-align:center}.db-avc.on,.db-avc:hover{border-color:var(--ink)}.db-avc small{display:block;color:var(--mut)}
 .db-toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:var(--bg);padding:8px 18px;border-radius:99px;opacity:0;pointer-events:none;transition:.2s;z-index:30}.db-toast.on{opacity:1;transform:translateX(-50%)}
+.db-topbar{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:6px}.db-topbar h1{margin:0}
+.db-lgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px;margin-bottom:14px}
+.db-deck{display:flex;gap:12px;padding:12px;align-items:flex-start;background:var(--card);border:3px solid var(--ink);border-radius:14px;box-shadow:4px 4px 0 var(--ink)}
+.db-dart{width:84px;flex:none}.db-dart img{width:100%;display:block;border-radius:8px;border:2px solid var(--ink)}.db-dinfo{flex:1;min-width:0}.db-dinfo h3{margin:0 0 4px;color:var(--ink);overflow-wrap:anywhere}.db-ds{font-size:.85rem;margin-top:2px}
+.db-add{flex-direction:column;align-items:center;justify-content:center;min-height:150px;font:inherit;font-weight:700;font-size:1.1rem;color:var(--ink);border-style:dashed;cursor:pointer;gap:4px}.db-add span{font-size:2.4rem;line-height:1}.db-add:hover{background:var(--gold);color:#111}
+.chip.danger{background:#c0121f;color:#fff;border-color:#c0121f}
 @media(max-width:900px){.db-wrap{grid-template-columns:1fr}.db-side{position:static;max-height:none}}
 .noimg{aspect-ratio:170/241;display:flex;align-items:center;justify-content:center;text-align:center;padding:8px;border:2px solid var(--ink);border-radius:10px;background:var(--pap)}.meta{margin-top:14px;padding-top:10px;border-top:1px dashed var(--mut);font-size:.85rem;color:var(--mut)}</style></head><body><main>
 <nav class="sitetabs" aria-label="เมนูเว็บ"><a class="on" href="/" data-v="cards" aria-current="page">Card List</a><a href="#deckbuilder" data-v="deck">Deckbuilder</a><a href="https://avastfalltcgsim.onrender.com/" target="_blank" rel="noopener">Playtest ↗</a></nav>
@@ -156,5 +162,5 @@ async function boot(){
 addEventListener("DOMContentLoaded",boot);
 
 </script>
-<script src="/deckbuilder.js?v=1"></script>
+<script src="/deckbuilder.js?v=2"></script>
 </body></html>
