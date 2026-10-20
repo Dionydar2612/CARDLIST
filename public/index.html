@@ -49,8 +49,44 @@ h3{color:var(--mut);margin:10px 0 6px}
 .kw.AUTO{background:#2a9d2a}.kw.ACTIVATE{background:#1b6fd8}.kw.COST{background:#222}
 .fl{font-style:italic;color:var(--mut);margin-top:12px}
 @media(max-width:720px){.dlg{grid-template-columns:1fr;padding:16px}.big{max-width:300px;margin:0 auto}h1{font-size:1.5rem}}
+
+[hidden]{display:none!important}
+.db-sub{margin:-4px 0 14px;color:var(--mut)}
+.db-wrap{display:grid;grid-template-columns:minmax(0,1fr) 400px;gap:16px;align-items:start}
+.db-filters{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;margin-bottom:8px;align-items:center}
+.db-filters select{padding:6px 10px;border-width:2px}.db-chk{display:flex;gap:6px;align-items:center;font-weight:700}.db-chk input{width:auto}
+.db-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(118px,1fr));gap:10px}
+.db-t{display:flex;flex-direction:column;gap:3px;padding:6px;border:2px solid transparent;border-radius:12px}.db-t.in{border-color:var(--ink);background:var(--card)}.db-t.off{opacity:.45}
+.db-img{position:relative;display:block;border:0;background:none;padding:0;cursor:pointer;border-radius:10px;width:100%}
+.db-img img,.db-av img,.db-avc img{width:100%;display:block;border-radius:8px;border:2px solid var(--ink)}
+.db-pill{position:absolute;top:4px;right:4px;min-width:24px;height:24px;border-radius:99px;background:var(--gold);color:#111;border:2px solid #111;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:.85rem}
+.db-nm{font-weight:700;font-size:.82rem;line-height:1.2}.db-mt{font-size:.72rem;color:var(--mut)}
+.db-step{display:flex;gap:6px;align-items:center;justify-content:center}
+.db-step button,.db-elc button{width:28px;height:28px;border-radius:50%;border:2px solid var(--ink);background:var(--card);color:var(--ink);font:inherit;font-weight:700;cursor:pointer;line-height:1;padding:0}
+.db-step button:disabled{opacity:.35;cursor:not-allowed}
+.db-side{padding:14px;position:sticky;top:8px;max-height:calc(100vh - 16px);overflow:auto;display:flex;flex-direction:column;gap:10px}
+.db-side>*{flex:none}.db-saved{display:flex;gap:6px}.db-saved select{padding:6px 10px;border-width:2px}
+.db-lbl{font-weight:700;display:block}.db-lbl input{padding:6px 10px;border-width:2px;margin-top:2px}
+.db-head{display:flex;gap:12px;align-items:flex-start}
+.db-av{position:relative;width:96px;flex:none;border:0;background:none;padding:0;cursor:pointer;color:var(--ink);font:inherit}.db-av span{display:block;font-size:.72rem;font-weight:700;margin-top:2px;background:var(--ink);color:var(--bg);border-radius:6px}
+.db-info{flex:1;min-width:0}.db-tot{font-size:1.1rem}.good{color:#1a8a3a;font-weight:700}.bad{color:#c0121f;font-weight:700}
+.db-bar{height:8px;border:2px solid var(--ink);border-radius:99px;overflow:hidden;margin-top:4px}.db-bar i{display:block;height:100%;background:#d9a400}.db-bar i.ok{background:#2a9d2a}.db-bar i.over{background:#c0121f}
+.db-tabs{display:flex;gap:4px}.db-tab{flex:1;font:inherit;font-weight:700;color:var(--ink);background:var(--card);border:2px solid var(--ink);border-radius:10px;padding:4px 2px;cursor:pointer}.db-tab.on{background:var(--ink);color:var(--bg)}.db-tab b{margin-left:4px;font-size:.8rem}
+.db-elh{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}
+.db-elg{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:4px}.db-elc{display:flex;gap:4px;align-items:center}.db-elc span{flex:1}
+.db-mini{display:grid;grid-template-columns:repeat(auto-fill,minmax(70px,1fr));gap:8px;min-height:60px}.db-m .db-step{margin-top:3px}.db-m .db-step button{width:24px;height:24px}
+.db-muted{color:var(--mut);font-size:.9rem}
+.db-warn{border:2px solid #c0121f;background:rgba(192,18,31,.1);border-radius:10px;padding:8px 10px;font-size:.85rem}
+.db-acts{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}.chip.pri{background:var(--gold);color:#111;font-weight:700}
+.db-ov{position:fixed;inset:0;background:rgba(0,0,0,.7);display:flex;align-items:center;justify-content:center;padding:12px;z-index:20}
+.db-dlg{background:var(--card);padding:20px;max-width:620px;width:100%;max-height:100%;overflow:auto}.db-dlg h2{margin:0 0 8px}
+.db-ta{width:100%;min-height:220px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.85rem;border:3px solid var(--ink);border-radius:12px;padding:10px;background:var(--bg);color:var(--ink);margin:8px 0}
+.db-avg{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:10px}.db-avc{font:inherit;color:var(--ink);background:none;border:2px solid transparent;border-radius:10px;padding:4px;cursor:pointer;text-align:center}.db-avc.on,.db-avc:hover{border-color:var(--ink)}.db-avc small{display:block;color:var(--mut)}
+.db-toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:var(--bg);padding:8px 18px;border-radius:99px;opacity:0;pointer-events:none;transition:.2s;z-index:30}.db-toast.on{opacity:1;transform:translateX(-50%)}
+@media(max-width:900px){.db-wrap{grid-template-columns:1fr}.db-side{position:static;max-height:none}}
 .noimg{aspect-ratio:170/241;display:flex;align-items:center;justify-content:center;text-align:center;padding:8px;border:2px solid var(--ink);border-radius:10px;background:var(--pap)}.meta{margin-top:14px;padding-top:10px;border-top:1px dashed var(--mut);font-size:.85rem;color:var(--mut)}</style></head><body><main>
-<nav class="sitetabs" aria-label="เมนูเว็บ"><a class="on" href="/" aria-current="page">Card List</a><a href="https://avastfalltcgsim.onrender.com/" target="_blank" rel="noopener">Playtest ↗</a></nav>
+<nav class="sitetabs" aria-label="เมนูเว็บ"><a class="on" href="/" data-v="cards" aria-current="page">Card List</a><a href="#deckbuilder" data-v="deck">Deckbuilder</a><a href="https://avastfalltcgsim.onrender.com/" target="_blank" rel="noopener">Playtest ↗</a></nav>
+<div id="v-cards">
 <h1>การ์ดทั้งหมด</h1>
 <p style="margin:-4px 0 12px"><a href="/api/docs" style="color:var(--ink)">📘 API สำหรับนักพัฒนา</a></p>
 <input id="q" class="search" placeholder="ค้นหาการ์ดด้วยชื่อ เลขการ์ด หรือข้อความในเอฟเฟกต์...">
@@ -60,6 +96,8 @@ h3{color:var(--mut);margin:10px 0 6px}
 </div>
 <div class="cnt" id="cnt"></div>
 <div class="grid" id="grid"></div>
+</div>
+<div id="v-deck" hidden></div>
 </main>
 <div id="modal"><button class="nav" id="prev">‹</button><div class="dlg box" id="dlg"></div><button class="nav" id="next">›</button></div>
 <script>
@@ -112,10 +150,11 @@ async function boot(){
   window.DECKS=Object.fromEntries(ds.data.map(d=>[d.id,{name:d.name,total:d.total,rot:d.rotation,el:d.element,rar:d.rarity,art:d.artist}]));
   window.CARDS=cs.data.map(c=>({deck:c.deck,no:c.no,key:c.id,name:c.name,type:c.type,sub:c.sub,cost:c.cost,cri:c.cri,atk:c.atk,def:c.def,sc:c.sc,tribe:c.tribe,
     fx:(c.effects||[]).map(e=>[e.keyword,e.text]),fl:c.flavor,el:c.element,els:c.elements,rar:c.rarity,rot:c.rotation,art:c.artist,img:c.image}));
-  init();
+  init();window.DB&&DB.init();
  }catch(err){document.getElementById("cnt").textContent="โหลดข้อมูลจาก API ไม่สำเร็จ: "+err.message}
 }
 addEventListener("DOMContentLoaded",boot);
 
 </script>
+<script src="/deckbuilder.js?v=1"></script>
 </body></html>
